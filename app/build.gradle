@@ -73,5 +73,8 @@ dependencies {
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.3.0'
     implementation 'com.xwray:groupie-databinding:2.3.0'
 
+    implementation 'com.nshmura:recyclertablayout:1.5.0'
+
+
     implementation "androidx.preference:preference-ktx:1.1.1"
 }

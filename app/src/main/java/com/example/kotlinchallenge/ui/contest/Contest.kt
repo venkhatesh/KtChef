@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager.widget.ViewPager
 
 import com.example.kotlinchallenge.R
+import com.google.android.material.tabs.TabLayout
 
 class Contest : Fragment() {
 
@@ -16,7 +18,8 @@ class Contest : Fragment() {
     }
 
     private lateinit var viewModel: ContestViewModel
-
+    private lateinit var pagerAdapter: ContestPageAdapter
+    private lateinit var recyclerTabLayout: TabLayout
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,7 +30,13 @@ class Contest : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ContestViewModel::class.java)
-        // TODO: Use the ViewModel
+        val viewPager : ViewPager = activity?.findViewById(R.id.view_pager)!!
+        pagerAdapter = ContestPageAdapter(requireActivity().supportFragmentManager)
+        viewPager.adapter = pagerAdapter
+        recyclerTabLayout = requireActivity().findViewById(R.id.tab_layout)
+        recyclerTabLayout.setupWithViewPager(viewPager)
     }
 
 }
+
+
