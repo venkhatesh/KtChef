@@ -1,6 +1,6 @@
 package com.example.kotlinchallenge.data.network
 
-import com.example.kotlinchallenge.data.network.responses.Data
+import com.example.kotlinchallenge.data.network.responses.DataResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
@@ -14,10 +14,10 @@ import retrofit2.http.GET
 interface CodeChefApi {
 
     @GET("ongoing")
-    fun onGoing(): Response<Data>
+    fun onGoing(): Call<DataResponse>
 
-    @GET("upcoming")
-    fun upComing(): Response<Data>
+    @GET("future")
+    fun upComing(): Call<DataResponse>
 
     companion object{
         operator fun invoke() : CodeChefApi {
