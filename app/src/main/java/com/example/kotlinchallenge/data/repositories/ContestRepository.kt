@@ -17,46 +17,46 @@ import retrofit2.Response
 class ContestRepository {
     val TAG:String = "ContestRepository"
 
-   fun fetchOngoingContest(contestName : String) : List<ArrayDataResponse> {
-        var arrayResult : List<ArrayDataResponse> = emptyList()
+    fun fetchOngoingContest(contestName : String) : LiveData<List<ArrayDataResponse>> {
+        var arrayResult = MutableLiveData<List<ArrayDataResponse>>()
         lateinit var contestCall : Call<DataResponse>
         if (contestName.equals("upcoming")){
-            contestCall = CodeChefApi.invoke().upComing()
+           // contestCall = CodeChefApi.invoke().upComing()
         }else {
             contestCall = CodeChefApi.invoke().onGoing()
         }
             contestCall.enqueue(object : Callback<DataResponse>{
+
             override fun onFailure(call: Call<DataResponse>, t: Throwable) {
-                arrayResult = emptyList()
                //Apiresponse.value = t.message
                 Log.d(TAG,t.message)
             }
 
             override fun onResponse(call: Call<DataResponse>, response: Response<DataResponse>) {
                 if (response.isSuccessful){
-                    arrayResult = response.body()?.Data!!
+                    arrayResult.value = response.body()?.Data!!
                     //Apiresponse.value = response.body().toString()
                     Log.d(TAG,response.body()?.Data?.get(0)?.Name)
+                    Log.d(TAG,"Repository List " + arrayResult.value!!.size)
 
                 }else{
-                    arrayResult = emptyList()
                     //Apiresponse.value = response.errorBody()?.string()
                     Log.d(TAG,response.errorBody()?.string())
 
                 }
             }
         })
+       Log.d(TAG,"Repository List " + arrayResult.value?.size)
        return arrayResult
     }
 
-//    suspend fun fetchOngoingContest(): Response<DataResponse> {
-//        val apiResponse = MutableLiveData<String>()
-//        return CodeChefApi.invoke().onGoing()
-//    }
 
 
-//    suspend fun fetchUpcomingContest(): Response<DataResponse> {
-//        val apiResponse = MutableLiveData<String>()
-//        return CodeChefApi.invoke().upComing()
-//    }
+
+    suspend fun fetchUpcomingContest(): List<ArrayDataResponse>? {
+        val result = CodeChefApi.invoke().upComing()
+        val apiResponse = MutableLiveData<List<ArrayDataResponse>>()
+        //apiResponse.value = result.body()?.Data
+        return result.body()?.Data
+    }
 }

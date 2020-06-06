@@ -1,6 +1,7 @@
 package com.example.kotlinchallenge.data.network
 
 import com.example.kotlinchallenge.data.network.responses.DataResponse
+import kotlinx.coroutines.Deferred
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
@@ -17,7 +18,7 @@ interface CodeChefApi {
     fun onGoing(): Call<DataResponse>
 
     @GET("future")
-    fun upComing(): Call<DataResponse>
+    suspend fun upComing(): Response<DataResponse>
 
     companion object{
         operator fun invoke() : CodeChefApi {
