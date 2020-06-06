@@ -40,10 +40,18 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>): RecyclerV
         fun bindContest(contest:ArrayDataResponse){
             this.contest = contest
             itemView.contest_name_tv.text = contest.Name
+            itemView.contest_code_tv.text = contest.Code
+            itemView.contest_start_tv.text = contest.Start
+            itemView.contest_end_tv.text = contest.End
         }
 
         override fun onClick(v: View?) {
             Log.d(TAG,"ClickListener")
+            if (itemView.contest_time_layout.visibility == View.VISIBLE){
+                itemView.contest_time_layout.visibility = View.GONE
+            }else{
+                itemView.contest_time_layout.visibility = View.VISIBLE
+            }
         }
     }
 }
