@@ -26,7 +26,6 @@ class OngoingFragment : Fragment(),NetworkListener {
     private lateinit var viewModel: ContestViewModel
     private lateinit var adapter: ContestRecyclerAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var contestList : List<ArrayDataResponse>
     override fun onCreateView (
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,14 +33,14 @@ class OngoingFragment : Fragment(),NetworkListener {
         Log.d(TAG,"Ongoing Fragment")
         val binding : FragmentOngoingBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_ongoing,container,false)
         viewModel = ViewModelProviders.of(this).get(ContestViewModel::class.java)
-        viewModel.callUpcomingApi()
+        viewModel.callOngoingApi()
         binding.ongoingvar = viewModel
         binding.lifecycleOwner = this
         linearLayoutManager = LinearLayoutManager(activity)
         Log.d(TAG,viewModel.liveResult.value?.size.toString())
         activity?.let {
             viewModel.liveResult.observe(it, Observer {
-                    Log.d(TAG,"Observable " + it.size)
+                Log.d(TAG,"Observable " + it.size)
                 ongoing_recycler.layoutManager = linearLayoutManager
                 adapter = ContestRecyclerAdapter(it)
                 ongoing_recycler.adapter = adapter
@@ -52,19 +51,12 @@ class OngoingFragment : Fragment(),NetworkListener {
     }
 
 
-
-
     override fun onStarted() {
         Log.d(TAG,"Network Started")
     }
 
     override fun onSuccess(response: List<ArrayDataResponse>) {
         activity?.toast("Successfull Network Call")
-        //adapter = ContestRecyclerAdapter(response as MutableLiveData<List<ArrayDataResponse>>)
-        ongoing_recycler.adapter = adapter
-        //ongoing_recycler.layoutManager = linearLayoutManager
-        Log.d(TAG,"Response Size " + response.size.toString())
-        Log.d(TAG, response.get(1).Code)
     }
 
     override fun onFailure(message: String) {

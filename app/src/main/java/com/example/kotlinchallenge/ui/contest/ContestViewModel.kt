@@ -17,15 +17,14 @@ class ContestViewModel : ViewModel() {
 
     fun callOngoingApi(){
         Log.d(TAG,"Call View Model")
-        val onGoingResponse = ContestRepository().fetchOngoingContest("ongoing")
-        Log.d(TAG,"MVVM Length " + onGoingResponse.value?.size)
+        Coroutines.main {
+            val onGoingResponse = ContestRepository().fetchOngoingContest()
+            Log.d(TAG,"MVVM Length " + onGoingResponse?.size)
+            liveResult.postValue(onGoingResponse)
+        }
+
         //networkListener?.onSuccess(onGoingResponse)
 
-//        Coroutines.main {
-//            val onGoingResponse = ContestRepository().fetchOngoingContest("ongoing")
-//            Log.d(TAG,"MVVM Length " + onGoingResponse.size)
-//
-//        }
     }
 
     fun callUpcomingApi(){

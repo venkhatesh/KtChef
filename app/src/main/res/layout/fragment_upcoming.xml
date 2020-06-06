@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.contest.UpcomingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="upcoming"
+            type="com.example.kotlinchallenge.ui.contest.ContestViewModel" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Upcoming Fragment" />
+        tools:context=".ui.contest.OngoingFragment">
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            tools:listitem="@layout/contest_item"
+            android:id="@+id/upcoming_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+</layout>
+

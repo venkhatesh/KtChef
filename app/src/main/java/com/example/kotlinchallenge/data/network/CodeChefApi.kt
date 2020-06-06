@@ -15,7 +15,7 @@ import retrofit2.http.GET
 interface CodeChefApi {
 
     @GET("ongoing")
-    fun onGoing(): Call<DataResponse>
+    suspend fun onGoing(): Response<DataResponse>
 
     @GET("future")
     suspend fun upComing(): Response<DataResponse>
