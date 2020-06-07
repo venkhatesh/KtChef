@@ -1,7 +1,9 @@
 package com.example.kotlinchallenge
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentTransaction
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequest
@@ -21,6 +23,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val toolbar = findViewById(R.id.toolbar) as Toolbar
+
+            setSupportActionBar(toolbar)
+            supportActionBar?.setTitle("Code Chef")
+
         val BottomNavigation : BottomNavigationView = findViewById(R.id.btm_nav)
 
         Contest = Contest()
