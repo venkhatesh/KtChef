@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by Venkhatesh on 06-06-2020.
  */
-class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>): RecyclerView.Adapter<ContestRecyclerAdapter.ContestViewHolder>() {
+class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contestType:String): RecyclerView.Adapter<ContestRecyclerAdapter.ContestViewHolder>() {
     val TAG : String = "ContestRecyclerAdapter"
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContestViewHolder {
         val inflatedView =parent.inflate(R.layout.contest_item,false)
@@ -35,7 +35,7 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>): RecyclerV
     override fun onBindViewHolder(holder: ContestViewHolder, position: Int)  {
             val itemContest = contestList.get(position)
             if (itemContest != null) {
-                holder.bindContest(itemContest)
+                holder.bindContest(itemContest,contestType)
             }
 
     }
@@ -49,9 +49,8 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>): RecyclerV
         }
 
 
-        fun bindContest(contest:ArrayDataResponse){
-            this.contest = contest
-
+        fun bindContest(contest:ArrayDataResponse,contestType: String){
+                this.contest = contest
                 itemView.contest_name_tv.text = contest.Name
                 itemView.contest_code_tv.text = contest.Code
                 itemView.contest_start_tv.text = contest.Start
@@ -75,6 +74,11 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>): RecyclerV
                         it.context.setNotification(year,month,day,hour,minutes)
                     })
                 }
+                if (contestType.equals("ongoing")){
+                    itemView.contest_notif_iv.visibility = View.GONE
+                }
+
+
 
 
 

@@ -14,14 +14,17 @@ class ContestViewModel : ViewModel() {
     val TAG : String = "ViewModel"
     var networkListener:NetworkListener ?= null
     var liveResult = MutableLiveData<List<ArrayDataResponse>>()
+    val loading = MutableLiveData<Boolean>()
 
     fun callOngoingApi(){
         Log.d(TAG,"Call View Model")
+        loading.value = true
         Coroutines.main {
             val onGoingResponse = ContestRepository().fetchOngoingContest()
             Log.d(TAG,"MVVM Length " + onGoingResponse?.size)
             onGoingResponse?.drop(1)
             liveResult.postValue(onGoingResponse)
+            loading.postValue( false)
         }
 
         //networkListener?.onSuccess(onGoingResponse)
@@ -30,11 +33,15 @@ class ContestViewModel : ViewModel() {
 
     fun callUpcomingApi(){
         networkListener?.onStarted()
+        loading.value = true
+
         Coroutines.main {
             val upComingResponse = ContestRepository().fetchUpcomingContest()
             upComingResponse?.drop(1)
             liveResult.postValue(upComingResponse)
             upComingResponse?.let { networkListener?.onSuccess(it) }
+            loading.postValue( false)
+
             // networkListener?.onSuccess(onGoingResponse)
         }
 

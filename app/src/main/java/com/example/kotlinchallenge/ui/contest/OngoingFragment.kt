@@ -20,6 +20,7 @@ import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.databinding.FragmentOngoingBinding
 import com.example.kotlinchallenge.ui.NetworkListener
 import com.example.kotlinchallenge.util.toast
+import com.facebook.shimmer.ShimmerFrameLayout
 import kotlinx.android.synthetic.main.fragment_ongoing.*
 
 class OngoingFragment : Fragment(),NetworkListener {
@@ -29,17 +30,20 @@ class OngoingFragment : Fragment(),NetworkListener {
     private lateinit var viewModel: ContestViewModel
     private lateinit var adapter: ContestRecyclerAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
+    lateinit var binding: FragmentOngoingBinding
     @SuppressLint("ResourceType")
     override fun onCreateView (
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         Log.d(TAG,"Ongoing Fragment")
-        val binding : FragmentOngoingBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_ongoing,container,false)
+        binding  = DataBindingUtil.inflate(inflater,R.layout.fragment_ongoing,container,false)
         viewModel = ViewModelProviders.of(this).get(ContestViewModel::class.java)
-        viewModel.callOngoingApi()
         binding.ongoingvar = viewModel
         binding.lifecycleOwner = this
+        binding.shimmerLayout.startShimmer()
+        viewModel.callOngoingApi()
+        //shimmerFrameLayout = activity?.findViewById(R.id.shimmer_layout)!!
         linearLayoutManager = LinearLayoutManager(activity)
         Log.d(TAG,viewModel.liveResult.value?.size.toString())
         activity?.let {
@@ -47,14 +51,34 @@ class OngoingFragment : Fragment(),NetworkListener {
                 Log.d(TAG,"Observable " + it.size)
                 it.drop(1)
                 ongoing_recycler.layoutManager = linearLayoutManager
-                adapter = ContestRecyclerAdapter(it)
+                adapter = ContestRecyclerAdapter(it,"ongoing")
                 ongoing_recycler.adapter = adapter
                 val divider = DividerItemDecoration(ongoing_recycler.getContext(), DividerItemDecoration.VERTICAL)
                 divider.setDrawable(context?.let { it1 -> ContextCompat.getDrawable(it1, R.layout.custom_divider) }!!)
                 ongoing_recycler.addItemDecoration(divider)
-
             })
         }
+
+        activity?.let {
+            viewModel.loading.observe(it, Observer {
+                if (it==true){
+                    binding.shimmerLayout.visibility - View.VISIBLE
+                    //shimmer_layout.visibility = View.VISIBLE
+                    binding.ongoingRecycler.visibility = View.GONE
+                    binding.shimmerLayout.startShimmer()
+                }else{
+                    binding.shimmerLayout.visibility = View.GONE
+                    binding.ongoingRecycler.visibility = View.VISIBLE
+                    binding.shimmerLayout.stopShimmer()
+            }
+            })
+        }
+
+        binding.swipeToRefreshOngoing.setOnRefreshListener {
+                binding.swipeToRefreshOngoing.isRefreshing = false
+                viewModel.callOngoingApi()
+        }
+
         return binding.root
     }
 

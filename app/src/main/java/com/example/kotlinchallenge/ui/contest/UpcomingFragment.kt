@@ -27,6 +27,7 @@ class UpcomingFragment : Fragment(),NetworkListener {
     private lateinit var viewModel: ContestViewModel
     private lateinit var adapter: ContestRecyclerAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
+    lateinit var binding: FragmentUpcomingBinding
 
     @SuppressLint("ResourceType")
     override fun onCreateView(
@@ -34,20 +35,40 @@ class UpcomingFragment : Fragment(),NetworkListener {
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProviders.of(this).get(ContestViewModel::class.java)
-        val binding : FragmentUpcomingBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_upcoming,container,false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_upcoming,container,false)
         binding.upcoming = viewModel
         binding.lifecycleOwner = this
+        binding.shimmerLayoutUpcoming.startShimmer()
         viewModel.callUpcomingApi()
         linearLayoutManager = LinearLayoutManager(activity)
         activity?.let {
             viewModel.liveResult.observe(it, Observer {
                 upcoming_recycler.layoutManager = linearLayoutManager
-                adapter = ContestRecyclerAdapter(it)
+                adapter = ContestRecyclerAdapter(it,"upcoming")
                 upcoming_recycler.adapter = adapter
                 val divider = DividerItemDecoration(upcoming_recycler.getContext(), DividerItemDecoration.VERTICAL)
                 divider.setDrawable(context?.let { it1 -> ContextCompat.getDrawable(it1, R.layout.custom_divider) }!!)
                 upcoming_recycler.addItemDecoration(divider)
             })
+        }
+
+        activity?.let {
+            viewModel.loading.observe(it, Observer {
+                if (it==true){
+                    binding.shimmerLayoutUpcoming.visibility - View.VISIBLE
+                    binding.upcomingRecycler.visibility = View.GONE
+                    binding.shimmerLayoutUpcoming.startShimmer()
+                }else{
+                    binding.shimmerLayoutUpcoming.visibility = View.GONE
+                    binding.upcomingRecycler.visibility = View.VISIBLE
+                    binding.shimmerLayoutUpcoming.stopShimmer()
+                }
+            })
+        }
+
+        binding.swipeToRefreshUpcoming.setOnRefreshListener {
+            binding.swipeToRefreshUpcoming.isRefreshing = false
+            viewModel.callOngoingApi()
         }
 
         return binding.root
