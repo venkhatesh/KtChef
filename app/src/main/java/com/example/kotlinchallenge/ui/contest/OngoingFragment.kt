@@ -45,6 +45,7 @@ class OngoingFragment : Fragment(),NetworkListener {
         activity?.let {
             viewModel.liveResult.observe(it, Observer {
                 Log.d(TAG,"Observable " + it.size)
+                it.drop(1)
                 ongoing_recycler.layoutManager = linearLayoutManager
                 adapter = ContestRecyclerAdapter(it)
                 ongoing_recycler.adapter = adapter

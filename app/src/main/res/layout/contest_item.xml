@@ -28,6 +28,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_weight="0"
+                    app:civ_border_color="#000000"
+                    app:civ_border_width="1dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/codechef_mascot_with_name"
                     android:layout_width="32dp"
@@ -103,6 +105,15 @@
 
                     </LinearLayout>
                 </LinearLayout>
+                <ImageView
+                    android:id="@+id/contest_notif_iv"
+                    android:layout_weight="0"
+                    app:civ_border_color="#000000"
+                    app:civ_border_width="1dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic__notifications_none_24"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"/>
 
             </LinearLayout>
 

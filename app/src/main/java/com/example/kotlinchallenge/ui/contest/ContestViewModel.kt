@@ -20,6 +20,7 @@ class ContestViewModel : ViewModel() {
         Coroutines.main {
             val onGoingResponse = ContestRepository().fetchOngoingContest()
             Log.d(TAG,"MVVM Length " + onGoingResponse?.size)
+            onGoingResponse?.drop(1)
             liveResult.postValue(onGoingResponse)
         }
 
@@ -30,13 +31,10 @@ class ContestViewModel : ViewModel() {
     fun callUpcomingApi(){
         networkListener?.onStarted()
         Coroutines.main {
-            Log.d(TAG,"Inside Coroutine")
-            val onGoingResponse = ContestRepository().fetchUpcomingContest()
-            Log.d(TAG, onGoingResponse?.size.toString())
-            Log.d(TAG,"ViewModel :" + onGoingResponse?.get(1)?.Code)
-            liveResult.postValue(onGoingResponse)
-            Log.d(TAG,"MutableLive Data" + liveResult.value?.size.toString())
-            onGoingResponse?.let { networkListener?.onSuccess(it) }
+            val upComingResponse = ContestRepository().fetchUpcomingContest()
+            upComingResponse?.drop(1)
+            liveResult.postValue(upComingResponse)
+            upComingResponse?.let { networkListener?.onSuccess(it) }
             // networkListener?.onSuccess(onGoingResponse)
         }
 
