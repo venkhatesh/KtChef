@@ -4,17 +4,20 @@ import android.content.Context
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
+import com.bumptech.glide.Glide
 import com.example.kotlinchallenge.NotifyWorker
 import com.example.kotlinchallenge.R
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.util.getMonthNumber
 import com.example.kotlinchallenge.util.inflate
 import com.example.kotlinchallenge.util.setNotification
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.contest_item.view.*
 import java.nio.charset.CodingErrorAction
 import java.util.*
@@ -72,15 +75,13 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
                         Log.d(TAG,"Date " + day + " " + month + " " + year)
                         Log.d(TAG, "Time Stamp " + hour + " " + minutes + " " + secs)
                         it.context.setNotification(year,month,day,hour,minutes)
+                        Glide.with(itemView.context).load("").placeholder(R.drawable.ic_baseline_notifications_24).into(itemView.contest_notif_iv)
+                        Toast.makeText(it.context,"Notification added successfully!",Toast.LENGTH_LONG).show()
                     })
                 }
                 if (contestType.equals("ongoing")){
                     itemView.contest_notif_iv.visibility = View.GONE
                 }
-
-
-
-
 
         }
 

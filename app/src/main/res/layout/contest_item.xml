@@ -32,8 +32,8 @@
                     app:civ_border_width="1dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/codechef_mascot_with_name"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"/>
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
 
                 <LinearLayout
                     android:layout_weight="1"
@@ -45,14 +45,14 @@
                         android:id="@+id/contest_code_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
+                        android:textSize="15dp"
                         android:textColor="#52575c"
                         android:text="@{contest.code}"/>
                     <TextView
                         android:id="@+id/contest_name_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="15dp"
+                        android:textSize="18dp"
                         android:paddingTop="8dp"
                         android:text="@{contest.name}"/>
 
@@ -73,12 +73,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Start :- "
-                                android:textSize="12dp"
+                                android:textStyle="bold|italic"
+                                android:textSize="15dp"
                                 android:paddingRight="6dp"/>
                             <TextView
                                 android:id="@+id/contest_start_tv"
                                 android:text="@{contest.start}"
-                                android:textSize="13dp"
+                                android:textSize="16dp"
+                                android:textStyle="italic"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
@@ -93,12 +95,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="End   :- "
-                                android:textSize="12dp"
+                                android:textStyle="bold|italic"
+                                android:textSize="15dp"
                                 android:paddingRight="6dp"/>
                             <TextView
                                 android:id="@+id/contest_end_tv"
                                 android:text="@{contest.end}"
-                                android:textSize="13dp"
+                                android:textSize="16dp"
+                                android:textStyle="italic"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
