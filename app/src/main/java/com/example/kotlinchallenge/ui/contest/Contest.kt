@@ -24,6 +24,10 @@ class Contest : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+//                val toolbar = findViewById(R.id.toolbar) as Toolbar
+//
+//            setSupportActionBar(toolbar)
+//            supportActionBar?.setTitle("Code Chef")
         return inflater.inflate(R.layout.contest_fragment, container, false)
     }
 

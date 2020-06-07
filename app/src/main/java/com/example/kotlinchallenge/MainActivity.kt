@@ -23,10 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
 
-            setSupportActionBar(toolbar)
-            supportActionBar?.setTitle("Code Chef")
 
         val BottomNavigation : BottomNavigationView = findViewById(R.id.btm_nav)
 
