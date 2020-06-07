@@ -2,10 +2,12 @@ package com.example.kotlinchallenge.ui.contest
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -18,6 +20,7 @@ import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.databinding.FragmentOngoingBinding
 import com.example.kotlinchallenge.databinding.FragmentUpcomingBinding
 import com.example.kotlinchallenge.ui.NetworkListener
+import com.example.kotlinchallenge.util.verifyAvailableNetwork
 import kotlinx.android.synthetic.main.fragment_ongoing.*
 import kotlinx.android.synthetic.main.fragment_upcoming.*
 
@@ -28,19 +31,33 @@ class UpcomingFragment : Fragment(),NetworkListener {
     private lateinit var adapter: ContestRecyclerAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
     lateinit var binding: FragmentUpcomingBinding
-
+    var TAG : String = "Upcoming Fragment"
     @SuppressLint("ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d(TAG,"Upcoming Fragment")
+
         viewModel = ViewModelProviders.of(this).get(ContestViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_upcoming,container,false)
         binding.upcoming = viewModel
         binding.lifecycleOwner = this
         binding.shimmerLayoutUpcoming.startShimmer()
-        viewModel.callUpcomingApi()
         linearLayoutManager = LinearLayoutManager(activity)
+
+        if(activity?.verifyAvailableNetwork(activity as AppCompatActivity) == false){
+            binding.listError.visibility = View.VISIBLE
+            binding.upcomingRecycler.visibility = View.GONE
+            binding.shimmerLayoutUpcoming.visibility = View.GONE
+
+        }else{
+            binding.listError.visibility = View.GONE
+            viewModel.callUpcomingApi()
+            binding.upcomingRecycler.visibility = View.VISIBLE
+            binding.shimmerLayoutUpcoming.visibility = View.VISIBLE
+        }
+
         activity?.let {
             viewModel.liveResult.observe(it, Observer {
                 upcoming_recycler.layoutManager = linearLayoutManager
@@ -50,6 +67,11 @@ class UpcomingFragment : Fragment(),NetworkListener {
                 divider.setDrawable(context?.let { it1 -> ContextCompat.getDrawable(it1, R.layout.custom_divider) }!!)
                 upcoming_recycler.addItemDecoration(divider)
             })
+        }
+
+        binding.swipeToRefreshUpcoming.setOnRefreshListener {
+            binding.swipeToRefreshUpcoming.isRefreshing = false
+            viewModel.callUpcomingApi()
         }
 
         activity?.let {
@@ -66,10 +88,7 @@ class UpcomingFragment : Fragment(),NetworkListener {
             })
         }
 
-        binding.swipeToRefreshUpcoming.setOnRefreshListener {
-            binding.swipeToRefreshUpcoming.isRefreshing = false
-            viewModel.callOngoingApi()
-        }
+
 
         return binding.root
     }

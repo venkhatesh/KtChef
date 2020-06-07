@@ -2,6 +2,7 @@ package com.example.kotlinchallenge.util
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.net.ConnectivityManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.work.Data
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
@@ -33,6 +35,12 @@ val TAG: String = "ViewUtils"
 
 fun Context.toast(message:String){
     Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+}
+
+fun Context.verifyAvailableNetwork(activity: AppCompatActivity):Boolean{
+    val connectivityManager=activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val networkInfo=connectivityManager.activeNetworkInfo
+    return  networkInfo!=null && networkInfo.isConnected
 }
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {

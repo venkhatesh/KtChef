@@ -41,8 +41,6 @@ class ContestViewModel : ViewModel() {
             liveResult.postValue(upComingResponse)
             upComingResponse?.let { networkListener?.onSuccess(it) }
             loading.postValue( false)
-
-            // networkListener?.onSuccess(onGoingResponse)
         }
 
     }

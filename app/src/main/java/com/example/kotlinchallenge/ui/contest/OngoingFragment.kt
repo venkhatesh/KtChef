@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
@@ -20,6 +21,7 @@ import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.databinding.FragmentOngoingBinding
 import com.example.kotlinchallenge.ui.NetworkListener
 import com.example.kotlinchallenge.util.toast
+import com.example.kotlinchallenge.util.verifyAvailableNetwork
 import com.facebook.shimmer.ShimmerFrameLayout
 import kotlinx.android.synthetic.main.fragment_ongoing.*
 
@@ -42,7 +44,18 @@ class OngoingFragment : Fragment(),NetworkListener {
         binding.ongoingvar = viewModel
         binding.lifecycleOwner = this
         binding.shimmerLayout.startShimmer()
-        viewModel.callOngoingApi()
+
+        if(activity?.verifyAvailableNetwork(activity as AppCompatActivity) == false){
+            binding.listError.visibility = View.VISIBLE
+            binding.ongoingRecycler.visibility = View.GONE
+            binding.shimmerLayout.visibility = View.GONE
+
+        }else{
+            viewModel.callOngoingApi()
+            binding.listError.visibility = View.GONE
+            binding.ongoingRecycler.visibility = View.VISIBLE
+            binding.shimmerLayout.visibility = View.VISIBLE
+        }
         //shimmerFrameLayout = activity?.findViewById(R.id.shimmer_layout)!!
         linearLayoutManager = LinearLayoutManager(activity)
         Log.d(TAG,viewModel.liveResult.value?.size.toString())
@@ -58,6 +71,7 @@ class OngoingFragment : Fragment(),NetworkListener {
                 ongoing_recycler.addItemDecoration(divider)
             })
         }
+
 
         activity?.let {
             viewModel.loading.observe(it, Observer {
