@@ -34,3 +34,23 @@ This app implements MVVM architecture
 - [Shimmer Effect](https://facebook.github.io/shimmer-android/)
 - [Glide](https://github.com/bumptech/glide)
 
+## Screenshots
+
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/ongoing_contest.jpg" align="left"
+width="200"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/ongoing_contest.jpg)
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/upcoming_contest.jpg" align="center"
+width="200"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/upcoming_contest.jpg)
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg" align="center"
+width="200"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg)  
+    
+    
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg" align="left"
+width="200"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg)
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/splash_screeen.jpg" align="center"
+width="200"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/splash_screeen.jpg)
+
