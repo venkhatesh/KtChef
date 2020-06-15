@@ -20,7 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     //companion object is to make initialization only once in kotlin
     companion object{
-        //volatile in kotlin is to access this varibale fomr anywhere
+        //volatile in kotlin is to access this variable from anywhere
         @Volatile
         private var instance: AppDatabase ?= null
         private val LOCK = Any()

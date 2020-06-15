@@ -73,6 +73,7 @@ dependencies {
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.3.0'
     implementation 'com.xwray:groupie-databinding:2.3.0'
 
+    //tab layout
     implementation 'com.nshmura:recyclertablayout:1.5.0'
 
     //Rounded Image View

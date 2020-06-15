@@ -83,34 +83,36 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center">
                         <LinearLayout
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             android:gravity="center"
+                            android:foregroundGravity="center"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:src="@drawable/null_pointer"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/null_pointer" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Something went wrong"
-                                android:paddingTop="8dp"
-                                android:textSize="18dp"
+                                android:textSize="15dp"
                                 android:textStyle="bold"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Your Internet Connection is probably Null."
                                 android:paddingTop="8dp"
-                                android:textSize="15dp"
+                                android:textSize="13dp"
                                 android:textColor="#929292"/>
 
                         </LinearLayout>
