@@ -4,8 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.kotlinchallenge.data.network.CodeChefApi
+import com.example.kotlinchallenge.data.network.CodeChefProfileApi
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.data.network.responses.DataResponse
+import com.example.kotlinchallenge.data.network.responses.profile.ProfileResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,5 +29,11 @@ class ContestRepository {
         val apiResponse = MutableLiveData<List<ArrayDataResponse>>()
         //apiResponse.value = result.body()?.Data
         return result.body()?.Data
+    }
+
+    suspend fun fetchProfile(): ProfileResponse? {
+        var profileResult = CodeChefProfileApi.invoke().profile("venky_2801")
+        Log.d(TAG, "fetchProfile: " + profileResult.body()?.rating)
+        return profileResult.body()
     }
 }

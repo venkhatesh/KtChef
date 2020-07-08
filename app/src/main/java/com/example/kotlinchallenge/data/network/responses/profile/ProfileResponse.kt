@@ -11,7 +11,7 @@ data class ProfileResponse(
     var country_rank : String,
     var user_details : UserDetailsResponse,
 //    var contests : ContestResponse,
-    var contest_ratings : ContestRatingsResponse
+    var contest_ratings : List<ContestRatingsResponse>
 //    var fully_solved : FullySolvedResponse,
 //    var paritally_solved : ParitallySolvedResponse
 )

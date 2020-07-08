@@ -6,9 +6,9 @@ package com.example.kotlinchallenge.data.network.responses.profile
 data class ContestRatingsResponse(
     var code : String,
     var getyear : String,
-    var gemonth : String,
+    var getmonth : String,
     var getday : String,
-    var ratings : String,
+    var rating : String,
     var rank : String,
     var name : String,
     var end_date : String
