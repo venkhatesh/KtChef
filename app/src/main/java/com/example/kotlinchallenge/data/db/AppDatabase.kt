@@ -5,14 +5,16 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
+import com.example.kotlinchallenge.data.network.responses.profile.UserDetailsResponse
 import com.example.kotlinchallenge.ui.contest.Contest
 
 /**
  * Created by Venkhatesh on 13-06-2020.
  */
 @Database(
-    entities = [ArrayDataResponse::class ],
-    version = 1
+    entities = [UserDetailsResponse::class ],
+    version = 1,
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 

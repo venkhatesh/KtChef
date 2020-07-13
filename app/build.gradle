@@ -28,6 +28,11 @@ android {
     dataBinding {
         enabled = true
     }
+//    buildFeatures{
+//        dataBinding = true
+//        // for view binding :
+//        viewBinding = true
+//    }
 
 }
 
