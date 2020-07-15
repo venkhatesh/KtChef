@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/codechef_header_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/go_for_gold"/>
+
+    <TextView
+        android:id="@+id/hello_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/codechef_header_logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Hello"
+        android:textSize="22sp"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:id="@+id/enter_user_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/hello_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Enter your codechef user name to continue"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:id="@+id/user_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/enter_user_name_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="username"
+        android:textSize="16sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/user_name_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/user_name_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"/>
+    <Button
+        android:id="@+id/user_name_submit_btn"
+        app:layout_constraintTop_toBottomOf="@id/user_name_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Continue"
+        android:layout_margin="5dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

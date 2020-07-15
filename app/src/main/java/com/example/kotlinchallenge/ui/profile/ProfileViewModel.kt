@@ -18,7 +18,8 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewM
                 var result = profileRepository.fetchProfile()
                 result?.user_details?.let {
                     Log.d(  TAG, "callProfileApi: " + it.name)
-                    profileRepository.saveUser(it) }
+                    //profileRepository.saveUser(it)
+                }
             }
         }
     }

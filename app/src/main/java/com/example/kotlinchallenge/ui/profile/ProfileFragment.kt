@@ -12,6 +12,7 @@ import com.example.kotlinchallenge.R
 import com.example.kotlinchallenge.data.db.AppDatabase
 import com.example.kotlinchallenge.data.repositories.ContestRepository
 import com.example.kotlinchallenge.data.repositories.ProfileRepository
+import kotlinx.android.synthetic.main.profile_fragment.*
 
 class ProfileFragment : Fragment() {
 
@@ -37,6 +38,21 @@ class ProfileFragment : Fragment() {
         val modelFactory = repository?.let { ProfileViewModelFactory(it) }
         viewModel = ViewModelProviders.of(this,modelFactory).get(ProfileViewModel::class.java)
         val profileResponse = viewModel.callProfileApi()
+        var pref_user_name = activity?.getSharedPreferences("user_name",0)
+        if(pref_user_name?.getString("user_name",null)==null){
+            no_user_found_layout.visibility = View.VISIBLE
+            profile_layout.visibility = View.GONE
+            no_user_found_layout.setOnClickListener(View.OnClickListener {
+                Log.d(TAG, "onActivityCreated: Inside If condition")
+                val bottomSheetFragment = ProfileBottomSheetFragment()
+                bottomSheetFragment.show(parentFragmentManager,bottomSheetFragment.tag)
+            })
+
+        }else{
+            no_user_found_layout.visibility = View.GONE
+            profile_layout.visibility = View.VISIBLE
+            //viewModel.callProfileApi()
+        }
     }
 
 }

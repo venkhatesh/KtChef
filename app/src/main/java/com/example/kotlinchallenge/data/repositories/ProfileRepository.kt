@@ -18,6 +18,10 @@ class ProfileRepository(private val db : AppDatabase){
         return profileResult.body()
     }
 
-    suspend fun saveUser(user: UserDetailsResponse) = db.getContestDao().insertUser(user)
+    suspend fun saveUser(user: UserDetailsResponse){
+        Log.d(TAG, "saveUser: " + user.name)
+        Log.d(TAG, "saveUser: " + user.username)
+        db.getContestDao().insertUser(user)
+    }
 
 }
