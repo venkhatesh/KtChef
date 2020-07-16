@@ -95,7 +95,6 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
                     //   v.context.setNotification(2020,6,7,16,20)
                 }
             }
-
             if (itemView.contest_time_layout.visibility == View.VISIBLE){
                 itemView.contest_time_layout.visibility = View.GONE
             }else{

@@ -8,6 +8,7 @@ data class ProfileResponse(
     var rating : String,
     var stars : String,
     var highest_rating : String,
+    var global_rank : String,
     var country_rank : String,
     var user_details : UserDetailsResponse,
 //    var contests : ContestResponse,

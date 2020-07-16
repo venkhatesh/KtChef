@@ -12,8 +12,8 @@ import com.example.kotlinchallenge.data.network.responses.profile.UserDetailsRes
 class ProfileRepository(private val db : AppDatabase){
     val TAG:String = "ProfileRepository"
 
-    suspend fun fetchProfile(): ProfileResponse? {
-        var profileResult = CodeChefProfileApi.invoke().profile("venky_2801")
+    suspend fun fetchProfile(userName:String): ProfileResponse? {
+        var profileResult = CodeChefProfileApi.invoke().profile(userName)
         Log.d(TAG, "fetchProfile: " + profileResult.body()?.rating)
         return profileResult.body()
     }
