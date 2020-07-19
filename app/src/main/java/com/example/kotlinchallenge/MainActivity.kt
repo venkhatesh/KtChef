@@ -13,6 +13,7 @@ import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.ui.NetworkListener
 import com.example.kotlinchallenge.ui.contest.Contest
 import com.example.kotlinchallenge.ui.profile.ProfileFragment
+import com.example.kotlinchallenge.ui.video.VideoFragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.nio.charset.CodingErrorAction
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity(),NetworkListener {
 
     lateinit var Contest: Contest
     lateinit var profileFragment: ProfileFragment
+    lateinit var videoFragment: VideoFragment
     var TAG : String = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +50,13 @@ class MainActivity : AppCompatActivity(),NetworkListener {
                     profileFragment = ProfileFragment()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frame_layout,profileFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+                R.id.nav_video->{
+                    videoFragment = VideoFragment()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frame_layout,videoFragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                 }

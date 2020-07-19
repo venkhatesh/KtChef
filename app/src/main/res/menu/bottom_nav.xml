@@ -9,4 +9,8 @@
         android:title="Profile"
         android:icon="@drawable/ic_action_profile"/>
 
+    <item android:id="@+id/nav_video"
+        android:title="Videos"
+        android:icon="@drawable/ic_action_video"/>
+
 </menu>
