@@ -17,142 +17,170 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:cardCornerRadius="10dp">
-                <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profile_cv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:id="@+id/profile_user_info"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:foregroundGravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp">
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/profile_picture_iv"
-                            android:layout_gravity="center"
-                            android:layout_weight="0"
-                            app:civ_border_color="#000000"
-                            app:civ_border_width="1dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/codechef_mascot_with_name"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:foregroundGravity="center" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintVertical_weight="1">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
                         <LinearLayout
+                            android:id="@+id/profile_user_info"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:foregroundGravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/profile_name_tv"
+                            android:layout_marginTop="10dp">
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/profile_picture_iv"
+                                android:layout_gravity="center"
+                                android:layout_weight="0"
+                                app:civ_border_color="#000000"
+                                app:civ_border_width="1dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/codechef_mascot_with_name"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:foregroundGravity="center" />
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Venkhatesh Arunachalam"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:layout_margin="10dp"
-                                android:layout_gravity="center"
-                                android:gravity="center"/>
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/profile_name_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Venkhatesh Arunachalam"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:layout_margin="10dp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_gravity="center">
+                                    <TextView
+                                        android:id="@+id/profile_institution_tv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="SIES Graduate School of Technology"
+                                        android:textSize="14sp"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:visibility="gone"/>
+                                    <TextView
+                                        android:id="@+id/profile_country_tv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="India"
+                                        android:textSize="14sp"
+                                        android:gravity="center"
+                                        android:layout_gravity="center"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/profile_rank_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/profile_user_info"
+                            android:paddingBottom="20dp"
+                            android:layout_marginTop="10dp">
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_gravity="center">
+                                android:layout_weight="1">
                                 <TextView
-                                    android:id="@+id/profile_institution_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="SIES Graduate School of Technology"
-                                    android:textSize="14sp"
-                                    android:layout_gravity="center"
-                                    android:gravity="center"
-                                    android:visibility="gone"/>
+                                    android:text="Global Rank"
+                                    android:layout_gravity="center"/>
                                 <TextView
-                                    android:id="@+id/profile_country_tv"
+                                    android:id="@+id/profile_global_rank_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="India"
-                                    android:textSize="14sp"
-                                    android:gravity="center"
+                                    android:text="1496"
+                                    android:layout_gravity="center"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="CodeChef Rating"
+                                    android:layout_gravity="center"/>
+                                <TextView
+                                    android:id="@+id/profile_rating_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1496"
+                                    android:layout_gravity="center"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Country Rank"
+                                    android:layout_gravity="center"/>
+                                <TextView
+                                    android:id="@+id/profile_country_rank_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1496"
                                     android:layout_gravity="center"/>
                             </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/profile_rank_info"
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/profile_cv"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_weight="1"
+                    android:layout_weight="1">
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/profile_line_chart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/profile_user_info"
-                        android:paddingBottom="20dp"
-                        android:layout_marginTop="10dp">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Global Rank"
-                                android:layout_gravity="center"/>
-                            <TextView
-                                android:id="@+id/profile_global_rank_tv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1496"
-                                android:layout_gravity="center"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="CodeChef Rating"
-                                android:layout_gravity="center"/>
-                            <TextView
-                                android:id="@+id/profile_rating_tv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1496"
-                                android:layout_gravity="center"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Country Rank"
-                                android:layout_gravity="center"/>
-                            <TextView
-                                android:id="@+id/profile_country_rank_tv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1496"
-                                android:layout_gravity="center"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:padding="9dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -169,7 +197,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone">
-
             <ImageView
                 android:id="@+id/no_user_found_iv"
                 android:layout_width="200dp"
@@ -182,7 +209,6 @@
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:textStyle="italic"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -190,7 +216,6 @@
                 android:textSize="18sp"
                 android:layout_gravity="center"
                 android:textStyle="italic"/>
-
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

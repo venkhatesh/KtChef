@@ -12,11 +12,9 @@ import kotlinx.coroutines.withContext
 
 class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewModel() {
     val TAG : String = "ProfileViewModel"
-    var profileNetworkListener : ProfileNetworkListener ?= null
     var liveResult = MutableLiveData<ProfileResponse>()
     var loading = MutableLiveData<Boolean>()
     fun callProfileApi(userName:String)  {
-        profileNetworkListener?.onStarted()
         loading.value = true
         viewModelScope.launch {
             withContext(Dispatchers.IO){
@@ -26,12 +24,10 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewM
                     Log.d(TAG, "callProfileApi: Inside On Success ${it.user_details.name}")
                     loading.postValue(false)
                     liveResult.postValue(it)
-                    profileNetworkListener?.onSuccess(it)
                     //profileRepository.saveUser(it)
                 }?: kotlin.run {
                     Log.d(TAG, "callProfileApi: Inside On Failure")
                     loading.postValue(false)
-                    profileNetworkListener?.onFailure("Something Went Wrong!")
                 }
             }
         }

@@ -95,4 +95,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 
     implementation "androidx.preference:preference-ktx:1.1.1"
+
+    //Android Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
