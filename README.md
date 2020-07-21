@@ -11,12 +11,12 @@ Yet another Open-Source CodeChef Client App but unlike any other project, Codech
 - [X] Schedule Notification for the Upcoming Contest
 
 ## Future Features
-- [] Activity of Code Chef Users
-- [] Search problems by tags
+- [ ] Activity of Code Chef Users
+- [ ] Search problems by tags
 
 ## Currently on development 
-- [] Codechef Youtube Videos
-- [] User Profile
+- [ ] Codechef Youtube Videos
+- [ ] User Profile
 
 ## Programming practises followed
 This app implements MVVM architecture
