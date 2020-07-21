@@ -6,17 +6,17 @@ Yet another Open-Source CodeChef Client App but unlike any other project, Codech
 [APK link]( https://drive.google.com/file/d/1r9NENRY6Z2FjJbsPE87eCbyy3KxykTj_/view?usp=sharing)
 
 ## Features
-- Upcoming Contest
-- Ongoing Contest
-- Schedule Notification for the Upcoming Contest
+- [X] Upcoming Contest
+- [X] Ongoing Contest
+- [X] Schedule Notification for the Upcoming Contest
 
 ## Future Features
-- Activity of Code Chef Users
-- Search problems by tags
+- [] Activity of Code Chef Users
+- [] Search problems by tags
 
 ## Currently on development 
-- Codechef Youtube Videos
-- User Profile
+- [] Codechef Youtube Videos
+- [] User Profile
 
 ## Programming practises followed
 This app implements MVVM architecture
