@@ -14,6 +14,10 @@ Yet another Open-Source CodeChef Client App but unlike any other project, Codech
 - Activity of Code Chef Users
 - Search problems by tags
 
+## Currently on development 
+- Codechef Youtube Videos
+- User Profile
+
 ## Programming practises followed
 This app implements MVVM architecture
 - Android Architectural Components
