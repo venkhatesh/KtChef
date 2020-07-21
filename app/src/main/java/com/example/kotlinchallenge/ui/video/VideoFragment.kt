@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinchallenge.BuildConfig
 import com.example.kotlinchallenge.R
+import com.example.kotlinchallenge.ui.contest.ContestViewModel
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayer.OnInitializedListener
@@ -19,6 +21,7 @@ import com.google.android.youtube.player.YouTubePlayerFragment
  */
 
 class VideoFragment  : Fragment() {
+    private lateinit var viewModel: VideoViewModel
 
     var TAG : String = "VideoFragment"
     override fun onCreateView(
@@ -31,25 +34,29 @@ class VideoFragment  : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var youtubeFragment: YouTubePlayerFragment =
-            (activity?.fragmentManager?.findFragmentById(R.id.youtube_player) as YouTubePlayerFragment)
-        youtubeFragment.initialize(BuildConfig.YOUTUBE_API_KEY,
-            object : OnInitializedListener {
-                override fun onInitializationSuccess(
-                    provider: YouTubePlayer.Provider,
-                    youTubePlayer: YouTubePlayer, b: Boolean
-                ) {
-                    // do any work here to cue video, play video, etc.
-                    youTubePlayer.cueVideo("tYr10me40-8")
-                    Log.d(TAG, "onInitializationSuccess: ")
-                }
+        viewModel = ViewModelProviders.of(this).get(VideoViewModel::class.java)
+        var result = viewModel.fetchYoutubeApi()
+        Log.d(TAG, "onViewCreated: ${result?.size}")
+//        var youtubeFragment: YouTubePlayerFragment =
+//            (activity?.fragmentManager?.findFragmentById(R.id.youtube_player) as YouTubePlayerFragment)
+//        youtubeFragment.initialize(BuildConfig.YOUTUBE_API_KEY,
+//            object : OnInitializedListener {
+//                override fun onInitializationSuccess(
+//                    provider: YouTubePlayer.Provider,
+//                    youTubePlayer: YouTubePlayer, b: Boolean
+//                ) {
+//                    // do any work here to cue video, play video, etc.
+//                    youTubePlayer.cueVideo("tYr10me40-8")
+//                    Log.d(TAG, "onInitializationSuccess: ")
+//                }
+//
+//                override fun onInitializationFailure(
+//                    provider: YouTubePlayer.Provider,
+//                    youTubeInitializationResult: YouTubeInitializationResult
+//                ) {
+//                    Log.d(TAG, "onInitializationFailure: ")
+//                }
+//            })
 
-                override fun onInitializationFailure(
-                    provider: YouTubePlayer.Provider,
-                    youTubeInitializationResult: YouTubeInitializationResult
-                ) {
-                    Log.d(TAG, "onInitializationFailure: ")
-                }
-            })
     }
 }
