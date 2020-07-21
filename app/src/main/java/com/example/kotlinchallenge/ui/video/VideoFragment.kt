@@ -40,7 +40,7 @@ class VideoFragment  : Fragment() {
                     youTubePlayer: YouTubePlayer, b: Boolean
                 ) {
                     // do any work here to cue video, play video, etc.
-                    youTubePlayer.cueVideo("5xVh-7ywKpE")
+                    youTubePlayer.cueVideo("tYr10me40-8")
                     Log.d(TAG, "onInitializationSuccess: ")
                 }
 
