@@ -2,6 +2,7 @@ package com.example.kotlinchallenge.ui.contest
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,7 @@ class Contest : Fragment() {
     companion object {
         fun newInstance() = Contest()
     }
-
+    val TAG = "Contest"
     private lateinit var viewModel: ContestViewModel
     private lateinit var pagerAdapter: ContestPageAdapter
     private lateinit var recyclerTabLayout: TabLayout
@@ -34,6 +35,7 @@ class Contest : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ContestViewModel::class.java)
+        Log.d(TAG, "onActivityCreated: Quotes Size ${viewModel.getQuotes()?.size}")
         val viewPager : ViewPager = activity?.findViewById(R.id.view_pager)!!
         pagerAdapter = ContestPageAdapter(requireActivity().supportFragmentManager)
         viewPager.adapter = pagerAdapter

@@ -6,10 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import com.example.kotlinchallenge.data.db.AppDatabase
 import com.example.kotlinchallenge.data.network.CodeChefApi
 import com.example.kotlinchallenge.data.network.CodeChefProfileApi
+import com.example.kotlinchallenge.data.network.CodeChefQuotesApi
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.data.network.responses.DataResponse
 import com.example.kotlinchallenge.data.network.responses.profile.ProfileResponse
 import com.example.kotlinchallenge.data.network.responses.profile.UserDetailsResponse
+import com.example.kotlinchallenge.data.network.responses.quotes.QuotesResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,6 +39,12 @@ class ContestRepository{
         var profileResult = CodeChefProfileApi.invoke().profile("venky_2801")
         Log.d(TAG, "fetchProfile: " + profileResult.body()?.rating)
         return profileResult.body()
+    }
+    
+    suspend fun fetchQuotes(): List<QuotesResponse>? {
+        var quotesResponse = CodeChefQuotesApi.invoke().programmingQuotes()
+        Log.d(TAG, "fetchQuotes: ${quotesResponse.body()?.size}")
+        return quotesResponse.body()
     }
 
 //    suspend fun saveUser(user:UserDetailsResponse) = db.getContestDao().insertUser(user)
