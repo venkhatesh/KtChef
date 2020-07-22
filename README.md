@@ -17,6 +17,7 @@ Yet another Open-Source CodeChef Client App but unlike any other project, Codech
 ## Currently on development 
 - [ ] Codechef Youtube Videos
 - [ ] User Profile
+- [ ] Random Programming Quotes
 
 ## Programming practises followed
 This app implements MVVM architecture
