@@ -20,7 +20,7 @@ import retrofit2.Response
 /**
  * Created by Venkhatesh on 02-06-2020.
  */
-class ContestRepository{
+class ContestRepository(private val db : AppDatabase){
     val TAG:String = "ContestRepository"
 
     suspend fun fetchOngoingContest(): List<ArrayDataResponse>?{
@@ -40,8 +40,17 @@ class ContestRepository{
         Log.d(TAG, "fetchProfile: " + profileResult.body()?.rating)
         return profileResult.body()
     }
-    
-   
+
+    suspend fun fetchQuotes() : List<QuotesResponse>? {
+        var quotesResponse = CodeChefQuotesApi.invoke().programmingQuotes().body()
+        quotesResponse?.let { db.getContestDao.insertQuotes(it) }
+        Log.d(TAG, "fetchQuotes: ${quotesResponse?.size}")
+        return quotesResponse
+    }
+
+    fun getQuotes() : QuotesResponse{
+        return db.getContestDao.getRandomQuote()
+    }
 
 //    suspend fun saveUser(user:UserDetailsResponse) = db.getContestDao().insertUser(user)
 }

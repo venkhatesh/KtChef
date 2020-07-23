@@ -1,23 +1,19 @@
 package com.example.kotlinchallenge.ui.contest
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kotlinchallenge.data.db.getDatabase
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
-import com.example.kotlinchallenge.data.network.responses.DataResponse
 import com.example.kotlinchallenge.data.network.responses.quotes.QuotesResponse
 import com.example.kotlinchallenge.data.repositories.ContestRepository
-import com.example.kotlinchallenge.data.repositories.ProfileRepository
 import com.example.kotlinchallenge.ui.NetworkListener
 import com.example.kotlinchallenge.util.Coroutines
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ContestViewModel : ViewModel() {
+class ContestViewModel(private val repository: ContestRepository) : ViewModel() {
     val TAG : String = "ViewModel"
     var networkListener:NetworkListener ?= null
     var liveResult = MutableLiveData<List<ArrayDataResponse>>()
@@ -54,7 +50,21 @@ class ContestViewModel : ViewModel() {
 
     }
 
+    //fetch quote from api
+    fun getQuotes(){
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                val test = repository.fetchQuotes()
+                Log.d(TAG, "getQuotes: TEST ${test?.size}")
+                //Log.d(TAG, "getQuotes: ${result?.size}")
+            }
+        }
+    }
 
+    //get random quotes from db
+    fun getRandomQuotes() : QuotesResponse {
+        return repository.getQuotes()
+    }
 
     fun getMutableLiveContest(): MutableLiveData<List<ArrayDataResponse>> {
         return liveResult

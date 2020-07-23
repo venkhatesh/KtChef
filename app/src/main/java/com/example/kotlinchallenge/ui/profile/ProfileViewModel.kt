@@ -37,18 +37,4 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewM
         }
     }
 
-
-    fun getQuotes(){
-        viewModelScope.launch {
-            withContext(Dispatchers.IO){
-                var result = profileRepository.fetchQuotes()
-                finalResult.postValue(result)
-                //Log.d(TAG, "getQuotes: ${result?.size}")
-            }
-        }
-    }
-
-    fun getDb() : List<QuotesResponse>{
-        return profileRepository.getQuotes()
-    }
 }

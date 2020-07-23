@@ -27,15 +27,4 @@ class ProfileRepository(private val db : AppDatabase){
         //db.getContestDao().insertUser(user)
     }
 
-    suspend fun fetchQuotes() : List<QuotesResponse>? {
-        var quotesResponse = CodeChefQuotesApi.invoke().programmingQuotes().body()
-        //quotesResponse?.let { db.getContestDao.insertQuotes(it) }
-        Log.d(TAG, "fetchQuotes: ${quotesResponse?.size}")
-        return quotesResponse
-    }
-
-    fun getQuotes() : List<QuotesResponse>{
-        return db.getContestDao.getVideos()
-    }
-
 }

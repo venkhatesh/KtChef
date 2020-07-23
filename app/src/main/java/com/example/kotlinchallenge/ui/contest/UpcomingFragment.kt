@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.kotlinchallenge.R
+import com.example.kotlinchallenge.data.db.getDatabase
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
+import com.example.kotlinchallenge.data.repositories.ContestRepository
 import com.example.kotlinchallenge.databinding.FragmentOngoingBinding
 import com.example.kotlinchallenge.databinding.FragmentUpcomingBinding
 import com.example.kotlinchallenge.ui.NetworkListener
@@ -38,8 +40,10 @@ class UpcomingFragment : Fragment(),NetworkListener {
         savedInstanceState: Bundle?
     ): View? {
         Log.d(TAG,"Upcoming Fragment")
-
-        viewModel = ViewModelProviders.of(this).get(ContestViewModel::class.java)
+        val db = activity?.let { getDatabase(it) }
+        val repository  = db?.let { ContestRepository(it) }
+        val modelFactory = repository?.let { ContestViewModelFactory(it) }
+        viewModel = ViewModelProviders.of(this,modelFactory).get(ContestViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_upcoming,container,false)
         binding.upcoming = viewModel
         binding.lifecycleOwner = this
