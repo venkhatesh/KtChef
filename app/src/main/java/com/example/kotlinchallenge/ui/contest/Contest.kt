@@ -35,7 +35,7 @@ class Contest : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ContestViewModel::class.java)
-        Log.d(TAG, "onActivityCreated: Quotes Size ${viewModel.getQuotes()?.size}")
+        //Log.d(TAG, "onActivityCreated: Quotes Size ${viewModel.getQuotes()?.size}")
         val viewPager : ViewPager = activity?.findViewById(R.id.view_pager)!!
         pagerAdapter = ContestPageAdapter(requireActivity().supportFragmentManager)
         viewPager.adapter = pagerAdapter

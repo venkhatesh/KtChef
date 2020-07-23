@@ -1,10 +1,13 @@
 package com.example.kotlinchallenge.ui.profile
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kotlinchallenge.data.db.getDatabase
 import com.example.kotlinchallenge.data.network.responses.profile.ProfileResponse
+import com.example.kotlinchallenge.data.network.responses.quotes.QuotesResponse
 import com.example.kotlinchallenge.data.repositories.ProfileRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,6 +17,7 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewM
     val TAG : String = "ProfileViewModel"
     var liveResult = MutableLiveData<ProfileResponse>()
     var loading = MutableLiveData<Boolean>()
+    var finalResult = MutableLiveData<List<QuotesResponse>>()
     fun callProfileApi(userName:String)  {
         loading.value = true
         viewModelScope.launch {
@@ -31,5 +35,20 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewM
                 }
             }
         }
+    }
+
+
+    fun getQuotes(){
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                var result = profileRepository.fetchQuotes()
+                finalResult.postValue(result)
+                //Log.d(TAG, "getQuotes: ${result?.size}")
+            }
+        }
+    }
+
+    fun getDb() : List<QuotesResponse>{
+        return profileRepository.getQuotes()
     }
 }

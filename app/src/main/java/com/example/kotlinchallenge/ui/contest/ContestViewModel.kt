@@ -5,10 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.kotlinchallenge.data.db.getDatabase
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.data.network.responses.DataResponse
 import com.example.kotlinchallenge.data.network.responses.quotes.QuotesResponse
 import com.example.kotlinchallenge.data.repositories.ContestRepository
+import com.example.kotlinchallenge.data.repositories.ProfileRepository
 import com.example.kotlinchallenge.ui.NetworkListener
 import com.example.kotlinchallenge.util.Coroutines
 import kotlinx.coroutines.Dispatchers
@@ -52,16 +54,7 @@ class ContestViewModel : ViewModel() {
 
     }
 
-    fun getQuotes(): List<QuotesResponse>? {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO){
-                var result = ContestRepository().fetchQuotes()
-                Log.d(TAG, "getQuotes: ${result?.size}")
-                return@withContext result
-            }
-        }
-        return null
-    }
+
 
     fun getMutableLiveContest(): MutableLiveData<List<ArrayDataResponse>> {
         return liveResult

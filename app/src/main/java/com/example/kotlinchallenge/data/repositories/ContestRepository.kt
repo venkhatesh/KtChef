@@ -41,11 +41,7 @@ class ContestRepository{
         return profileResult.body()
     }
     
-    suspend fun fetchQuotes(): List<QuotesResponse>? {
-        var quotesResponse = CodeChefQuotesApi.invoke().programmingQuotes()
-        Log.d(TAG, "fetchQuotes: ${quotesResponse.body()?.size}")
-        return quotesResponse.body()
-    }
+   
 
 //    suspend fun saveUser(user:UserDetailsResponse) = db.getContestDao().insertUser(user)
 }

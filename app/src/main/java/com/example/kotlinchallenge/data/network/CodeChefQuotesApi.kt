@@ -2,6 +2,7 @@ package com.example.kotlinchallenge.data.network
 
 import com.example.kotlinchallenge.data.network.responses.DataResponse
 import com.example.kotlinchallenge.data.network.responses.quotes.QuotesResponse
+import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

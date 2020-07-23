@@ -13,14 +13,17 @@ import androidx.lifecycle.observe
 
 import com.example.kotlinchallenge.R
 import com.example.kotlinchallenge.data.db.AppDatabase
+import com.example.kotlinchallenge.data.db.getDatabase
 import com.example.kotlinchallenge.data.network.responses.profile.ContestRatingsResponse
 import com.example.kotlinchallenge.data.network.responses.profile.ProfileResponse
+import com.example.kotlinchallenge.data.network.responses.quotes.QuotesResponse
 import com.example.kotlinchallenge.data.repositories.ProfileRepository
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import kotlinx.android.synthetic.main.profile_fragment.*
+import kotlinx.coroutines.*
 
 class ProfileFragment : Fragment() {
 
@@ -40,12 +43,24 @@ class ProfileFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val db = activity?.let { AppDatabase(it) }
+        val db = activity?.let { getDatabase(it) }
         val repository  = db?.let { ProfileRepository(it) }
         val modelFactory = repository?.let { ProfileViewModelFactory(it) }
         viewModel = ViewModelProviders.of(this,modelFactory).get(ProfileViewModel::class.java)
         //val profileResponse = viewModel.callProfileApi()
-
+        Log.d(TAG, "onActivityCreated: Quotes ${viewModel.getQuotes()}")
+        Log.d(TAG, "onActivityCreated: DB SIZE :- ${viewModel.getDb().size}")
+        activity?.let {
+            viewModel.finalResult.observe(it, Observer {
+                Log.d(TAG, "onActivityCreated: Oberver ${it.size}")
+                val uiScope = CoroutineScope(Dispatchers.Main + Job())
+                uiScope.launch (Dispatchers.IO){
+                    withContext(Dispatchers.Main){
+                        db?.getContestDao?.insertQuotes(it)
+                    }
+                }
+            })
+        }
         //fetch username from sharedpref
         var pref_user_name = activity?.getSharedPreferences("user_name",0)
         var userName = pref_user_name?.getString("user_name",null)
@@ -124,6 +139,12 @@ class ProfileFragment : Fragment() {
         val markerView = activity?.applicationContext?.let { CustomMarker(it, R.layout.marker_view) }
         profile_line_chart.marker = markerView
 
+    }
+
+    suspend fun insertDatabase(db : AppDatabase,ls : List<QuotesResponse>){
+        withContext(Dispatchers.IO){
+            db.getContestDao.insertQuotes(ls)
+        }
     }
 
 }
