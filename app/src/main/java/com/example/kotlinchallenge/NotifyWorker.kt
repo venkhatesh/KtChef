@@ -16,20 +16,60 @@ import android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION
 import android.media.AudioAttributes.USAGE_NOTIFICATION_RINGTONE
 import android.media.RingtoneManager.TYPE_NOTIFICATION
 import android.media.RingtoneManager.getDefaultUri
+import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.O
+import android.provider.Settings.Global.getString
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationCompat.PRIORITY_MAX
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import com.example.kotlinchallenge.R.string.quotes_channel_name
+import com.example.kotlinchallenge.data.db.AppDatabase
+import com.example.kotlinchallenge.data.db.getDatabase
 
 /**
  * Created by Venkhatesh on 07-06-2020.
  */
 class NotifyWorker(context:Context, params: WorkerParameters):Worker(context,params) {
+
     override fun doWork(): Result {
         sendNotification(1)
+        createQuotesNotificationChannel()
         return Result.success()
+    }
+
+    private fun createQuotesNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        var db = getDatabase(applicationContext)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "Quotes"
+            val quote = db.getContestDao.getRandomQuote()
+            val descriptionText = quote.en
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(1.toString(), name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                applicationContext.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+
+            var builder = NotificationCompat.Builder(applicationContext, "1")
+                .setSmallIcon(R.drawable.codechef_mascot)
+                .setContentTitle("KodeQuotes")
+                .setContentText(quote.en)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+            with(NotificationManagerCompat.from(applicationContext)) {
+                // notificationId is a unique int for each notification that you must define
+                notificationManager.notify(1, builder.build())
+            }
+        }
+
     }
 
     private fun sendNotification(id: Int) {

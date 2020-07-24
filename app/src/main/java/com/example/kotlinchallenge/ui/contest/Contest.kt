@@ -9,6 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkRequest
+import com.example.kotlinchallenge.NotifyWorker
 
 import com.example.kotlinchallenge.R
 import com.example.kotlinchallenge.data.db.getDatabase
@@ -39,6 +42,7 @@ class Contest : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         val db = activity?.let { getDatabase(it) }
         val repository  = db?.let { ContestRepository(it) }
         val modelFactory = repository?.let { ContestViewModelFactory(it) }

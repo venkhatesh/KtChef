@@ -11,9 +11,7 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.work.Data
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
+import androidx.work.*
 import com.example.kotlinchallenge.NotifyWorker
 import com.example.kotlinchallenge.NotifyWorker.Companion.NOTIFICATION_ID
 import com.example.kotlinchallenge.NotifyWorker.Companion.NOTIFICATION_WORK
@@ -52,6 +50,14 @@ private fun Context.scheduleNotification(delay: Long, data: Data) {
     val instanceWorkManager = WorkManager.getInstance(this)
     instanceWorkManager.enqueue(notificationWork)
 }
+
+//private fun Context.scheduleQuoteNotification(){
+//    val saveRequest = PeriodicWorkRequestBuilder<NotifyWorker::class.java>(1, TimeUnit.HOURS)
+//            // Additional configuration
+//            .build()
+//    val instanceWorkManager = WorkManager.getInstance(this)
+//    instanceWorkManager.enqueue(notificationWork)
+//}
 
 @SuppressLint("WrongConstant")
 fun Context.setNotification(year:Int, month:Int, day:Int, hour:Int, minute:Int){

@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentTransaction
-import androidx.work.Data
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
+import androidx.work.*
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.ui.NetworkListener
 import com.example.kotlinchallenge.ui.contest.Contest
@@ -28,6 +26,9 @@ class MainActivity : AppCompatActivity(),NetworkListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val saveRequest = PeriodicWorkRequestBuilder<NotifyWorker>(3, TimeUnit.MINUTES).build()
+        WorkManager.getInstance(applicationContext).enqueue(saveRequest)
         Log.d(TAG, "onCreate: ")
         val BottomNavigation : BottomNavigationView = findViewById(R.id.btm_nav)
 
