@@ -48,7 +48,7 @@ class NotifyWorker(context:Context, params: WorkerParameters):Worker(context,par
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Quotes"
             val quote = db.getContestDao.getRandomQuote()
-            val descriptionText = quote.en
+            val descriptionText = quote.en + "~" + quote.author
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(1.toString(), name, importance).apply {
                 description = descriptionText
@@ -61,7 +61,8 @@ class NotifyWorker(context:Context, params: WorkerParameters):Worker(context,par
             var builder = NotificationCompat.Builder(applicationContext, "1")
                 .setSmallIcon(R.drawable.codechef_mascot)
                 .setContentTitle("KodeQuotes")
-                .setContentText(quote.en)
+                .setContentText(descriptionText)
+                .setStyle(NotificationCompat.BigTextStyle().bigText(descriptionText))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
             with(NotificationManagerCompat.from(applicationContext)) {
