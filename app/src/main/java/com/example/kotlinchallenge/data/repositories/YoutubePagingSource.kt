@@ -26,9 +26,10 @@ class YoutubePagingSource(
             Log.d(TAG, "load: ${videos.get(0).id}")
             Log.d(TAG, "load: ${videos.size}")
             Log.d(TAG, "load: Token ${response.nextPageToken}")
+            Log.d(TAG, "load: previoud Toke ${response.prevPageToken} 1")
             LoadResult.Page(
                 data = videos,
-                prevKey = if(position.equals("")) "" else response.prevPageToken,
+                prevKey = if(response.prevPageToken.equals(null)) null else response.prevPageToken,
                 nextKey = response.nextPageToken
             )
         }
