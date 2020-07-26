@@ -7,13 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinchallenge.BuildConfig
 import com.example.kotlinchallenge.R
+import com.example.kotlinchallenge.ui.contest.ContestRecyclerAdapter
 import com.example.kotlinchallenge.ui.contest.ContestViewModel
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayer.OnInitializedListener
 import com.google.android.youtube.player.YouTubePlayerFragment
+import kotlinx.android.synthetic.main.fragment_videos.*
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 
 /**
@@ -22,6 +28,8 @@ import com.google.android.youtube.player.YouTubePlayerFragment
 
 class VideoFragment  : Fragment() {
     private lateinit var viewModel: VideoViewModel
+    private var adapter: VideosAdapter = VideosAdapter()
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     var TAG : String = "VideoFragment"
     override fun onCreateView(
@@ -35,8 +43,19 @@ class VideoFragment  : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(VideoViewModel::class.java)
-        var result = viewModel.fetchYoutubeApi()
-        Log.d(TAG, "onViewCreated: ${result?.size}")
+        linearLayoutManager = LinearLayoutManager(activity)
+        videos_recycler.layoutManager = linearLayoutManager
+        videos_recycler.adapter = adapter
+        lifecycleScope.launch {
+            viewModel.fetchVideo().collect{
+                Log.d(TAG, "onViewCreated: ")
+                adapter.submitData(it)
+            }
+        }
+
+        //var result = viewModel.fetchYoutubeApi()
+        //Log.d(TAG, "onViewCreated: ${result?.size}")
+
 //        var youtubeFragment: YouTubePlayerFragment =
 //            (activity?.fragmentManager?.findFragmentById(R.id.youtube_player) as YouTubePlayerFragment)
 //        youtubeFragment.initialize(BuildConfig.YOUTUBE_API_KEY,

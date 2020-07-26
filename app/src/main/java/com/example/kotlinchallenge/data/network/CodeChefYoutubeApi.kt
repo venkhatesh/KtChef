@@ -8,14 +8,17 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * Created by Venkhatesh on 21-07-2020.
  */
 interface CodeChefYoutubeApi {
 
-    @GET("youtube/v3/search?key=${BuildConfig.YOUTUBE_API_KEY}&channelId=UCmk2YHXZQk_3GsLKBqsZoBQ&maxResults=108&part=snippet")
-    suspend fun youtubeVideos(): Response<YoutubeApiResponse>
+    @GET("youtube/v3/search?key=${BuildConfig.YOUTUBE_API_KEY}&channelId=UCmk2YHXZQk_3GsLKBqsZoBQ&maxResults=508&part=snippet")
+    suspend fun youtubeVideos(
+        @Query("pageToken") token : String
+    ): YoutubeApiResponse
 
     companion object{
         val okHttpClient = OkHttpClient().newBuilder()
