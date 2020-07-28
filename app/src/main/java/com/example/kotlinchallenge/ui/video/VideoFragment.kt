@@ -1,13 +1,16 @@
 package com.example.kotlinchallenge.ui.video
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinchallenge.BuildConfig
 import com.example.kotlinchallenge.R
@@ -17,6 +20,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayer.OnInitializedListener
 import com.google.android.youtube.player.YouTubePlayerFragment
+import kotlinx.android.synthetic.main.fragment_ongoing.*
 import kotlinx.android.synthetic.main.fragment_videos.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -40,16 +44,21 @@ class VideoFragment  : Fragment() {
         return inflater.inflate(R.layout.fragment_videos,container,false)
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(VideoViewModel::class.java)
         linearLayoutManager = LinearLayoutManager(activity)
         videos_recycler.layoutManager = linearLayoutManager
         videos_recycler.adapter = adapter
+        val divider = DividerItemDecoration(ongoing_recycler.getContext(), DividerItemDecoration.VERTICAL)
+        divider.setDrawable(context?.let { it1 -> ContextCompat.getDrawable(it1, R.layout.custom_divider) }!!)
+        videos_recycler.addItemDecoration(divider)
         lifecycleScope.launch {
             viewModel.fetchVideo().collect{
                 Log.d(TAG, "onViewCreated: ")
                 adapter.submitData(it)
+
             }
         }
 

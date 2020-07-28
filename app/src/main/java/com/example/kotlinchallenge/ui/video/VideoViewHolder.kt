@@ -14,6 +14,9 @@ import kotlinx.android.synthetic.main.youtube_video_item.view.*
  */
 class VideoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val id = view.findViewById<TextView>(R.id.youtube_video_id)
+    private val name = view.findViewById<TextView>(R.id.youtube_video_title_tv)
+    private val description = view.findViewById<TextView>(R.id.youtube_video_description_tv)
+    private val date = view.findViewById<TextView>(R.id.youtube_video_date_tv)
 
     fun bind(item:ApiItems){
         id.text = item.snippet.title

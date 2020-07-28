@@ -27,7 +27,7 @@
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Code Chef"
+            android:text="Contest"
             android:gravity="center"
             android:textColor="@color/whiteColor"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
