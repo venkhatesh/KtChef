@@ -15,10 +15,12 @@ data class ApiItems(
 )
 
 data class ID(
+    var kind : String,
     var videoId : String
 )
 
 data class Snippet(
     var title : String,
-    var description : String
+    var description : String,
+    var publishedAt : String
 )
