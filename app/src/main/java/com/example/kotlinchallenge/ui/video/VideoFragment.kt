@@ -51,14 +51,13 @@ class VideoFragment  : Fragment() {
         linearLayoutManager = LinearLayoutManager(activity)
         videos_recycler.layoutManager = linearLayoutManager
         videos_recycler.adapter = adapter
-        val divider = DividerItemDecoration(ongoing_recycler.getContext(), DividerItemDecoration.VERTICAL)
+        val divider = DividerItemDecoration(videos_recycler.getContext(), DividerItemDecoration.VERTICAL)
         divider.setDrawable(context?.let { it1 -> ContextCompat.getDrawable(it1, R.layout.custom_divider) }!!)
         videos_recycler.addItemDecoration(divider)
         lifecycleScope.launch {
             viewModel.fetchVideo().collect{
                 Log.d(TAG, "onViewCreated: ")
                 adapter.submitData(it)
-
             }
         }
 
