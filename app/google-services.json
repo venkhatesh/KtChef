@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1067294322702",
+    "firebase_url": "https://kodechef.firebaseio.com",
+    "project_id": "kodechef",
+    "storage_bucket": "kodechef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067294322702:android:917ef9ea7bad5c1aa3cc5f",
+        "android_client_info": {
+          "package_name": "com.example.kotlinchallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067294322702-g1nhts2fff4i8sfqn6om29j99qt9cagk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxLiSt3o-RAquvponXoUB1G7oL5ms47Zc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067294322702-g1nhts2fff4i8sfqn6om29j99qt9cagk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

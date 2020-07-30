@@ -14,6 +14,7 @@ import com.example.kotlinchallenge.ui.profile.ProfileFragment
 import com.example.kotlinchallenge.ui.video.VideoFragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 import java.nio.charset.CodingErrorAction
 import java.util.concurrent.TimeUnit
 
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity(),NetworkListener {
         val BottomNavigation : BottomNavigationView = findViewById(R.id.btm_nav)
 
         Contest = Contest()
+        toolbar_title.text = "Contest"
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_frame_layout,Contest)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity(),NetworkListener {
         BottomNavigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId){
                 R.id.nav_contest->{
+                    toolbar_title.text = "Contest"
                     Contest = Contest()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frame_layout,Contest)
@@ -48,6 +51,7 @@ class MainActivity : AppCompatActivity(),NetworkListener {
                         .commit()
                 }
                 R.id.nav_profile->{
+                    toolbar_title.text = "Profile"
                     profileFragment = ProfileFragment()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frame_layout,profileFragment)
@@ -55,6 +59,7 @@ class MainActivity : AppCompatActivity(),NetworkListener {
                         .commit()
                 }
                 R.id.nav_video->{
+                    toolbar_title.text = "Video"
                     videoFragment = VideoFragment()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.main_frame_layout,videoFragment)

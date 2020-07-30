@@ -35,6 +35,11 @@ class ContestRepository(private val db : AppDatabase){
         return result.body()?.Data
     }
 
+    suspend fun fetchPastContest(): List<ArrayDataResponse>?{
+        val pastResponse = CodeChefApi.invoke().past()
+        return pastResponse.body()?.Data
+    }
+
     suspend fun fetchProfile(): ProfileResponse? {
         var profileResult = CodeChefProfileApi.invoke().profile("venky_2801")
         Log.d(TAG, "fetchProfile: " + profileResult.body()?.rating)

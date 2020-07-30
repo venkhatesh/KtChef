@@ -25,11 +25,11 @@ class ContestViewModel(private val repository: ContestRepository) : ViewModel() 
         loading.value = true
 //        TODO("Uncomment Netwowrk Calls")
         Coroutines.main {
-//            val onGoingResponse = ContestRepository().fetchOngoingContest()
-//            Log.d(TAG,"MVVM Length " + onGoingResponse?.size)
-//            onGoingResponse?.drop(1)
-//            liveResult.postValue(onGoingResponse)
-//            loading.postValue( false)
+            var onGoingResponse = repository.fetchOngoingContest()
+            Log.d(TAG,"MVVM Length " + onGoingResponse?.size)
+            onGoingResponse?.drop(1)
+            liveResult.postValue(onGoingResponse)
+            loading.postValue( false)
         }
 
         //networkListener?.onSuccess(onGoingResponse)
@@ -41,14 +41,29 @@ class ContestViewModel(private val repository: ContestRepository) : ViewModel() 
         loading.value = true
 //        TODO("Uncomment Netwowrk Calls")
         Coroutines.main {
-//            val upComingResponse = ContestRepository().fetchUpcomingContest()
-//            upComingResponse?.drop(1)
-//            liveResult.postValue(upComingResponse)
-//            upComingResponse?.let { networkListener?.onSuccess(it) }
-//            loading.postValue( false)
+            val upComingResponse = repository.fetchUpcomingContest()
+            upComingResponse?.drop(1)
+            liveResult.postValue(upComingResponse)
+            upComingResponse?.let { networkListener?.onSuccess(it) }
+            loading.postValue( false)
         }
 
     }
+
+    fun callPastApi(){
+        networkListener?.onStarted()
+        loading.value = true
+//        TODO("Uncomment Netwowrk Calls")
+        Coroutines.main {
+            val pastResponse = repository.fetchPastContest()
+            pastResponse?.drop(1)
+            liveResult.postValue(pastResponse)
+            pastResponse?.let { networkListener?.onSuccess(it) }
+            loading.postValue( false)
+        }
+
+    }
+
 
     //fetch quote from api
     fun getQuotes(){

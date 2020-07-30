@@ -19,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/youtube_video_iv"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"/>
 
@@ -49,6 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Youtube Video Descrption"
+                    android:visibility="gone"
                     android:textSize="15sp"/>
 
             </LinearLayout>

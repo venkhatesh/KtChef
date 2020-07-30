@@ -20,6 +20,9 @@ interface CodeChefApi {
     @GET("future")
     suspend fun upComing(): Response<DataResponse>
 
+    @GET("past")
+    suspend fun past() : Response<DataResponse>
+
     companion object{
         operator fun invoke() : CodeChefApi {
             return Retrofit.Builder()

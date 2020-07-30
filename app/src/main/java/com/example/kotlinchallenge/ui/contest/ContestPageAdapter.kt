@@ -18,6 +18,9 @@ class ContestPageAdapter(fragmentManager: FragmentManager) :
             1->{
                 return UpcomingFragment()
             }
+            2->{
+                return PastFragment()
+            }
         }
         return OngoingFragment()
     }
@@ -30,11 +33,14 @@ class ContestPageAdapter(fragmentManager: FragmentManager) :
             1->{
                 return "Upcoming"
             }
+            2->{
+                return "Past"
+            }
         }
         return "Ongoing"
     }
 
     override fun getCount(): Int {
-        return 2
+        return 3
     }
 }
