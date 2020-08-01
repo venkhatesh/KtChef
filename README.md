@@ -3,7 +3,7 @@ CodeChef Contest is an educational and user friendly application to bring compet
 
 ## How to run the app
 Yet another Open-Source CodeChef Client App but unlike any other project, Codechef App and API was built by myself using Kotlin for android and GO language for API.
-[APK link]( https://drive.google.com/file/d/1r9NENRY6Z2FjJbsPE87eCbyy3KxykTj_/view?usp=sharing)
+[APK link](https://drive.google.com/file/d/1eACPQQVjpON7_eW14bckJEJgCKpXwp9Z/view?usp=sharing)
 
 ## Features
 - [X] Upcoming Contest
