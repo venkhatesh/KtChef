@@ -33,6 +33,8 @@ This app implements MVVM architecture
 - [Retrofit](https://square.github.io/retrofit/)
 - [Kotlin coroutines](https://developer.android.com/kotlin/coroutines)
 - [Room](https://developer.android.com/topic/libraries/architecture/room)
+- [Paging 3](https://developer.android.com/topic/libraries/architecture/paging)
+- [Youtube API](https://developers.google.com/youtube/v3/docs/search/list)
 - [Material Componenets](https://material.io/develop/android/docs/getting-started/)
 - [Circle Imageview](https://github.com/hdodenhof/CircleImageView)
 - [Workmanager](https://developer.android.com/topic/libraries/architecture/workmanager/basics)
