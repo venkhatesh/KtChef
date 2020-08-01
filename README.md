@@ -9,15 +9,15 @@ Yet another Open-Source CodeChef Client App but unlike any other project, Codech
 - [X] Upcoming Contest
 - [X] Ongoing Contest
 - [X] Schedule Notification for the Upcoming Contest
+- [X] Random Programming Quotes
+- [X] User Profile
+- [X] Codechef Youtube Videos
 
 ## Future Features
-- [ ] Activity of Code Chef Users
 - [ ] Search problems by tags
 
 ## Currently on development 
-- [ ] Codechef Youtube Videos
-- [ ] User Profile
-- [ ] Random Programming Quotes
+- [ ] Activity of Code Chef Users
 
 ## Programming practises followed
 This app implements MVVM architecture
@@ -26,6 +26,7 @@ This app implements MVVM architecture
 - MVVM
 - Room
 - Repository Pattern
+- Paging
 
 ## Dependencies & Libraries used
 - [Kotlin Language](https://developer.android.com/kotlin/add-kotlin)
