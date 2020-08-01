@@ -46,10 +46,10 @@ This app implements MVVM architecture
 
 [<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif)  
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif)
 [<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif)  
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif)
 [<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif" align="left"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif)      
