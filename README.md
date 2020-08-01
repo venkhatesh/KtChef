@@ -43,17 +43,22 @@ This app implements MVVM architecture
 
 ## Screenshots
 
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/ongoing_contest.jpg" align="left"
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/ongoing_contest.jpg)
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/upcoming_contest.jpg" align="center"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif)
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/upcoming_contest.jpg)
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif)
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif" align="left"
+width="200"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif)    
+    
+
 [<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg)  
     
-    
+
 [<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg" align="left"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg)
