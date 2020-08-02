@@ -61,24 +61,32 @@ private fun Context.scheduleNotification(delay: Long, data: Data) {
 
 @SuppressLint("WrongConstant")
 fun Context.setNotification(year:Int, month:Int, day:Int, hour:Int, minute:Int){
-    val customCalendar = Calendar.getInstance()
+    var customCalendar = Calendar.getInstance()
     //customCalendar.set(year,month,day,hour,minute,0)
-    customCalendar.set(2020,6,7,18,7,0)
+    customCalendar.set(20,8,2)
 
-    val customTime = customCalendar.timeInMillis
+    val customTime = customCalendar.time.time
     val currentTime = currentTimeMillis()
+
+    val differenceOne = customTime - currentTime
+    val differenceTwo = currentTime - customTime
+    Log.d(TAG, "Difference 1 : $differenceOne")
+    Log.d(TAG, "Difference 2 : $differenceTwo")
+    Log.d(TAG, "**MILLI**: ${TimeUnit.MILLISECONDS.toHours(differenceOne)}")
+    Log.d(TAG, "setNotification: ")
     if (customTime > currentTime) {
         val data = Data.Builder().putInt(NOTIFICATION_ID, 0).build()
         val delay = customTime - currentTime
-        Log.d(TAG,"Current TIme " + currentTime)
-        Log.d(TAG,"Custom Time" + customTime)
-        Log.d(TAG ,"Delay Time "+ delay.toString())
+        Log.d(TAG,"Current TIme $currentTime " + currentTime.toString().length)
+        Log.d(TAG,"Custom Time $customTime " + customTime.toString().length)
+        Log.d(TAG ,"Delay Time "+ delay.toString() + " ${delay.toString().length}")
         scheduleNotification(delay, data)
         Log.d(TAG,"Notif Sucessfull")
     } else {
         Log.d(TAG,"Notif Unsucessfull")
     }
 }
+
 
 fun Context.getMonthNumber(month: String) : Int{
     var monthLower = month.toLowerCase()

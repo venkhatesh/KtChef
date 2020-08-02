@@ -60,6 +60,7 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
                 itemView.contest_end_tv.text = contest.End
                 if (!contest.Code.equals("Code")){
                     var timeStamp = contest.Start
+                    Log.d(TAG, "bindContest: Real Time Stamp $timeStamp")
                     var timeDateStampSplit = timeStamp.split(" ")
                     var timeSplit = timeDateStampSplit[4].split(':')
                     Log.d(TAG,"Time " + timeSplit)

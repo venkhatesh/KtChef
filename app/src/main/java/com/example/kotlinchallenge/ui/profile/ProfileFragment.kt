@@ -95,29 +95,36 @@ class ProfileFragment : Fragment() {
         val entries = ArrayList<Entry>()
         for(item in dataList){
             var yAxis : Float
-            if(item.getday.toInt() >= 10){
-                yAxis = (item.getday.toFloat() / 100) + item.getyear.toFloat()
-            }else{
-                yAxis = (item.getday.toFloat() / 10) + item.getyear.toFloat()
+            yAxis = (item.getmonth.toFloat() / 100) + item.getyear.toFloat()
 
-            }
-            entries.add(Entry(item.getyear.toFloat(),item.rating.toFloat()))
+//            if(item.getmonth.toInt() >= 10){
+//                yAxis = (item.getmonth.toFloat() / 100) + item.getyear.toFloat()
+//            }else{
+//                yAxis = (item.getmonth.toFloat() / 10) + item.getyear.toFloat()
+//
+//            }
+            Log.d(TAG, "createLineChart: Month and Year $yAxis")
+            Log.d(TAG, "createLineChart: Month Number ${item.getmonth}")
+            Log.d(TAG, "createLineChart: Year Number ${item.getyear}")
+            entries.add(Entry(yAxis,item.rating.toFloat()))
+
+            //entries.add(Entry(item.getyear.toFloat(),item.rating.toFloat()))
         }
 //        entries.add(Entry(1f, 10f))
 //        entries.add(Entry(2f, 2f))
 //        entries.add(Entry(3f, 7f))
 //        entries.add(Entry(4f, 20f))
 //        entries.add(Entry(5f, 16f))
-        val vl = LineDataSet(entries, "My Type")
+        val vl = LineDataSet(entries, "Rating")
         vl.setDrawValues(false)
         vl.setDrawFilled(true)
         vl.lineWidth = 3f
         vl.fillColor = R.color.colorPrimary
-        vl.fillAlpha = R.color.colorAccent
+        vl.fillAlpha = R.color.cc
         profile_line_chart.xAxis.labelRotationAngle = 0f
         profile_line_chart.data = LineData(vl)
-        profile_line_chart.axisRight.isEnabled = false
-        profile_line_chart.xAxis.axisMaximum = 2020f+0.1f
+        profile_line_chart.axisRight.isEnabled = true
+        profile_line_chart.xAxis.axisMaximum = 2021f+0.1f
         profile_line_chart.setTouchEnabled(true)
         profile_line_chart.setPinchZoom(true)
         profile_line_chart.description.text = "Days"
