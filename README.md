@@ -9,15 +9,15 @@ Yet another Open-Source CodeChef Client App but unlike any other project, Codech
 - [X] Upcoming Contest
 - [X] Ongoing Contest
 - [X] Schedule Notification for the Upcoming Contest
+- [X] Random Programming Quotes
+- [X] User Profile
+- [X] Codechef Youtube Videos
 
 ## Future Features
-- [ ] Activity of Code Chef Users
 - [ ] Search problems by tags
 
 ## Currently on development 
-- [ ] Codechef Youtube Videos
-- [ ] User Profile
-- [ ] Random Programming Quotes
+- [ ] Activity of Code Chef Users
 
 ## Programming practises followed
 This app implements MVVM architecture
@@ -26,6 +26,7 @@ This app implements MVVM architecture
 - MVVM
 - Room
 - Repository Pattern
+- Paging
 
 ## Dependencies & Libraries used
 - [Kotlin Language](https://developer.android.com/kotlin/add-kotlin)
@@ -43,18 +44,21 @@ This app implements MVVM architecture
 
 ## Screenshots
 
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/ongoing_contest.jpg" align="left"
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/ongoing_contest.jpg)
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/upcoming_contest.jpg" align="center"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif)
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/upcoming_contest.jpg)
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg" align="center"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif)
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg)  
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif)      
     
-    
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg" align="left"
+
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg" align="left"
+width="200"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg)
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg)
 [<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/splash_screeen.jpg" align="center"
