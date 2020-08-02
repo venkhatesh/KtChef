@@ -68,7 +68,10 @@ class OngoingFragment : Fragment(),NetworkListener {
             viewModel.liveResult.observe(it, Observer {
                 Log.d(TAG,"Observable " + it.size)
                 it.drop(1)
-                ongoing_recycler.layoutManager = linearLayoutManager
+                ongoing_recycler.let {
+                    it.layoutManager= linearLayoutManager
+                }
+                //ongoing_recycler.layoutManager = linearLayoutManager
                 adapter = ContestRecyclerAdapter(it,"ongoing")
                 ongoing_recycler.adapter = adapter
                 val divider = DividerItemDecoration(ongoing_recycler.getContext(), DividerItemDecoration.VERTICAL)

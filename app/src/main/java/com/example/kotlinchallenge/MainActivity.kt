@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity(),NetworkListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val saveRequest = PeriodicWorkRequestBuilder<NotifyWorker>(24, TimeUnit.HOURS).build()
-        WorkManager.getInstance(applicationContext).enqueue(saveRequest)
+//        val saveRequest = PeriodicWorkRequestBuilder<NotifyWorker>(24, TimeUnit.HOURS).build()
+//        WorkManager.getInstance(applicationContext).enqueue(saveRequest)
         Log.d(TAG, "onCreate: ")
         val BottomNavigation : BottomNavigationView = findViewById(R.id.btm_nav)
 

@@ -63,16 +63,13 @@ private fun Context.scheduleNotification(delay: Long, data: Data) {
 fun Context.setNotification(year:Int, month:Int, day:Int, hour:Int, minute:Int){
     var customCalendar = Calendar.getInstance()
     //customCalendar.set(year,month,day,hour,minute,0)
-    customCalendar.set(20,8,2)
+    customCalendar.set(year,month-1,day,hour,minute,0)
 
     val customTime = customCalendar.time.time
     val currentTime = currentTimeMillis()
 
     val differenceOne = customTime - currentTime
     val differenceTwo = currentTime - customTime
-    Log.d(TAG, "Difference 1 : $differenceOne")
-    Log.d(TAG, "Difference 2 : $differenceTwo")
-    Log.d(TAG, "**MILLI**: ${TimeUnit.MILLISECONDS.toHours(differenceOne)}")
     Log.d(TAG, "setNotification: ")
     if (customTime > currentTime) {
         val data = Data.Builder().putInt(NOTIFICATION_ID, 0).build()
@@ -90,6 +87,7 @@ fun Context.setNotification(year:Int, month:Int, day:Int, hour:Int, minute:Int){
 
 fun Context.getMonthNumber(month: String) : Int{
     var monthLower = month.toLowerCase()
+    Log.d(TAG, "getMonthNumber: $monthLower")
     if (monthLower.contains("jan")){
         return 1
     }else if (monthLower.contains("feb")){
@@ -100,13 +98,13 @@ fun Context.getMonthNumber(month: String) : Int{
         return 4
     }else if(monthLower.contains("may")){
         return 5
-    }else if(monthLower.contains("june")){
+    }else if(monthLower.contains("jun")){
         return 6
-    }else if(monthLower.contains("july")){
+    }else if(monthLower.contains("jul")){
         return 7
-    }else if(monthLower.contains("august")){
+    }else if(monthLower.contains("aug")){
         return 8
-    }else if(monthLower.contains("sept")){
+    }else if(monthLower.contains("sep")){
         return 9
     }else if(monthLower.contains("oct")){
         return 10

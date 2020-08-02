@@ -20,6 +20,7 @@ import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.O
 import android.provider.Settings.Global.getString
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationCompat.PRIORITY_MAX
 import androidx.core.app.NotificationManagerCompat
@@ -35,13 +36,15 @@ import com.example.kotlinchallenge.data.db.getDatabase
  */
 class NotifyWorker(context:Context, params: WorkerParameters):Worker(context,params) {
 
+    val TAG = "NotifyWorker"
     override fun doWork(): Result {
         sendNotification(1)
-        createQuotesNotificationChannel()
+        //createQuotesNotificationChannel()
         return Result.success()
     }
 
     private fun createQuotesNotificationChannel() {
+        Log.d(TAG, "createQuotesNotificationChannel: Inside Quotes Notification")
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
         var db = getDatabase(applicationContext)
@@ -74,6 +77,7 @@ class NotifyWorker(context:Context, params: WorkerParameters):Worker(context,par
     }
 
     private fun sendNotification(id: Int) {
+        Log.d(TAG, "sendNotification: Inside Contest Notification")
         val intent = Intent(applicationContext, MainActivity::class.java)
         intent.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra(NOTIFICATION_ID, id)
