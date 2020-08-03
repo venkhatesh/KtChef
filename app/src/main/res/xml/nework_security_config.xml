@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">13.235.33.181</domain>
+        <domain includeSubdomains="true">intense-citadel-99793.herokuapp.com</domain>
     </domain-config>
 </network-security-config>
 

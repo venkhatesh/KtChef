@@ -26,7 +26,7 @@ interface CodeChefApi {
     companion object{
         operator fun invoke() : CodeChefApi {
             return Retrofit.Builder()
-                .baseUrl("http://13.235.33.181/")
+                .baseUrl("http://intense-citadel-99793.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(CodeChefApi::class.java)

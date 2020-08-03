@@ -26,7 +26,6 @@ data class ProfileResponse(
 //    var paritally_solved : ParitallySolvedResponse
 )
 
-
 data class ContestRatingsResponse(
     var code : String,
     var getyear : String,
