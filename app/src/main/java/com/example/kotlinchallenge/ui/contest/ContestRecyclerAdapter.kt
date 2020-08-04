@@ -1,27 +1,20 @@
 package com.example.kotlinchallenge.ui.contest
 
-import android.content.Context
+import android.net.Uri
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.RecyclerView
-import androidx.work.Data
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
 import com.bumptech.glide.Glide
-import com.example.kotlinchallenge.NotifyWorker
 import com.example.kotlinchallenge.R
 import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.util.getMonthNumber
 import com.example.kotlinchallenge.util.inflate
 import com.example.kotlinchallenge.util.setNotification
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.contest_item.view.*
-import java.nio.charset.CodingErrorAction
-import java.util.*
-import java.util.concurrent.TimeUnit
+
 
 /**
  * Created by Venkhatesh on 06-06-2020.
@@ -47,12 +40,14 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
         val TAG : String = "ContestRecyclerAdapter"
         private var view: View = v
             private var contest: ArrayDataResponse? = null
+        private var contestType : String? = null
         init {
             v.setOnClickListener(this)
         }
 
         fun bindContest(contest:ArrayDataResponse,contestType: String){
                 this.contest = contest
+                this.contestType = contestType
                 itemView.contest_name_tv.text = contest.Name
                 itemView.contest_code_tv.text = contest.Code
                 itemView.contest_start_tv.text = contest.Start
@@ -93,8 +88,13 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
         override fun onClick(v: View?) {
             Log.d(TAG,"ClickListener")
             Log.d(TAG,"ID " + v?.id.toString())
-            if(contest?.equals("past")!!){
-                var url = "https://www.codechef.com/$contest"
+            Log.d(TAG, "onClick: URL ${contest?.Url}")
+            Log.d(TAG, "onClick: Contest Name $contestType")
+            if(contestType?.equals("past")!!){
+                var url = "https://www.codechef.com/${contest!!.Url}"
+                val builder = CustomTabsIntent.Builder()
+                val customTabsIntent = builder.build()
+                customTabsIntent.launchUrl(itemView.context, Uri.parse(url))
             }
             if (v != null) {
                 if (v.id == R.id.contest_notif_iv){

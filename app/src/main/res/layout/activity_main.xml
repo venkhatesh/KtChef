@@ -42,7 +42,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:itemBackground="@color/whiteColor"
+        app:itemBackground="@color/cc"
+        app:itemTextColor="@color/whiteColor"
+        app:itemIconTint="@color/whiteColor"
         app:menu="@menu/bottom_nav"/>
 
 

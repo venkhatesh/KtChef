@@ -65,7 +65,10 @@ class PastFragment : Fragment() {
             viewModel.liveResult.observe(it, Observer {
                 Log.d(TAG,"Observable " + it.size)
                 it.drop(1)
-                past_recycler.layoutManager = linearLayoutManager
+                past_recycler.let {
+                    it.layoutManager = linearLayoutManager
+                }
+                //past_recycler.layoutManager = linearLayoutManager
                 adapter = ContestRecyclerAdapter(it,"past")
                 past_recycler.adapter = adapter
                 val divider = DividerItemDecoration(past_recycler.getContext(), DividerItemDecoration.VERTICAL)

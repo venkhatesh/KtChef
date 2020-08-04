@@ -3,14 +3,14 @@
 
     <item android:id="@+id/nav_contest"
         android:title="Contest"
-        android:icon="@drawable/ic_action_contest"/>
+        android:icon="@drawable/ic_contest_white"/>
 
     <item android:id="@+id/nav_profile"
         android:title="Profile"
-        android:icon="@drawable/ic_action_profile"/>
+        android:icon="@drawable/ic_profile_white"/>
 
     <item android:id="@+id/nav_video"
         android:title="Videos"
-        android:icon="@drawable/ic_action_video"/>
+        android:icon="@drawable/ic_video_white"/>
 
 </menu>
