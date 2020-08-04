@@ -132,5 +132,9 @@ dependencies {
     //Paging library
     implementation "androidx.paging:paging-runtime:3.0.0-alpha03"
 
+    //custom tabs
+    implementation "androidx.browser:browser:1.2.0"
+
+
 
 }

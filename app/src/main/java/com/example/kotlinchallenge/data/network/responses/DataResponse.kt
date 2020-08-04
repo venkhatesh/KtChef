@@ -17,5 +17,6 @@ data class ArrayDataResponse(
     val Code:String,
     val Name:String,
     val Start:String,
-    val End:String
+    val End:String,
+    val Url:String
 )

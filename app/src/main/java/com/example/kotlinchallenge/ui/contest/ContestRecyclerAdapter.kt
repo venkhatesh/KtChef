@@ -30,7 +30,7 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
     val TAG : String = "ContestRecyclerAdapter"
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContestViewHolder {
         val inflatedView =parent.inflate(R.layout.contest_item,false)
-        return ContestViewHolder(inflatedView)
+        return ContestViewHolder(inflatedView,contestType)
     }
 
     override fun getItemCount(): Int = contestList.size
@@ -43,14 +43,13 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
 
     }
 
-    class ContestViewHolder(v:View):RecyclerView.ViewHolder(v), View.OnClickListener {
+    class ContestViewHolder(v:View, contest: String):RecyclerView.ViewHolder(v), View.OnClickListener {
         val TAG : String = "ContestRecyclerAdapter"
         private var view: View = v
             private var contest: ArrayDataResponse? = null
         init {
             v.setOnClickListener(this)
         }
-
 
         fun bindContest(contest:ArrayDataResponse,contestType: String){
                 this.contest = contest
@@ -83,13 +82,20 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
                 if (contestType.equals("ongoing")){
                     itemView.contest_notif_iv.visibility = View.GONE
                 }
+                if(contestType.equals("past")){
+                    itemView.contest_notif_iv.visibility = View.GONE
+                    
 
+                }
         }
 
 
         override fun onClick(v: View?) {
             Log.d(TAG,"ClickListener")
             Log.d(TAG,"ID " + v?.id.toString())
+            if(contest?.equals("past")!!){
+                var url = "https://www.codechef.com/$contest"
+            }
             if (v != null) {
                 if (v.id == R.id.contest_notif_iv){
                     Log.d(TAG,"Bell Icon Click")

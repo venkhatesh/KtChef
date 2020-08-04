@@ -66,7 +66,7 @@ class PastFragment : Fragment() {
                 Log.d(TAG,"Observable " + it.size)
                 it.drop(1)
                 past_recycler.layoutManager = linearLayoutManager
-                adapter = ContestRecyclerAdapter(it,"ongoing")
+                adapter = ContestRecyclerAdapter(it,"past")
                 past_recycler.adapter = adapter
                 val divider = DividerItemDecoration(past_recycler.getContext(), DividerItemDecoration.VERTICAL)
                 divider.setDrawable(context?.let { it1 -> ContextCompat.getDrawable(it1, R.layout.custom_divider) }!!)
