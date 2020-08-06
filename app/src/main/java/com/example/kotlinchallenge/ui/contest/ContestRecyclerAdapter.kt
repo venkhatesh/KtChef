@@ -1,5 +1,6 @@
 package com.example.kotlinchallenge.ui.contest
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.util.Log
 import android.view.View
@@ -85,6 +86,7 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
         }
 
 
+        @SuppressLint("ResourceAsColor")
         override fun onClick(v: View?) {
             Log.d(TAG,"ClickListener")
             Log.d(TAG,"ID " + v?.id.toString())
@@ -93,7 +95,7 @@ class ContestRecyclerAdapter(val contestList:List<ArrayDataResponse>, val contes
             if(contestType?.equals("past")!!){
                 var url = "https://www.codechef.com/${contest!!.Url}"
                 val builder = CustomTabsIntent.Builder()
-                val customTabsIntent = builder.build()
+                val customTabsIntent = builder.setToolbarColor(itemView.context.resources.getColor(R.color.cc)).build()
                 customTabsIntent.launchUrl(itemView.context, Uri.parse(url))
             }
             if (v != null) {

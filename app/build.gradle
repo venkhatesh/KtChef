@@ -135,6 +135,9 @@ dependencies {
     //custom tabs
     implementation "androidx.browser:browser:1.2.0"
 
+    //lottie animation
+    implementation "com.airbnb.android:lottie:3.4.0"
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.example.kotlinchallenge.ui.profile
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.kotlinchallenge.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.user_name_bottom_sheet.*
@@ -17,6 +19,7 @@ import kotlinx.android.synthetic.main.user_name_bottom_sheet.*
  * Created by Venkhatesh on 15-07-2020.
  */
 class ProfileBottomSheetFragment : BottomSheetDialogFragment(){
+    val SOME_INTENT_FILTER_NAME = "user_name"
 
     var TAG = "ProfileBottomSheetFragment"
     override fun onCreateView(
@@ -36,6 +39,9 @@ class ProfileBottomSheetFragment : BottomSheetDialogFragment(){
                 if (editor != null) {
                     editor.putString("user_name", userName.toString())
                     editor.commit()
+                    var intent = Intent(SOME_INTENT_FILTER_NAME)
+                    intent.putExtra("user_name",userName.toString())
+                    activity?.let { it1 -> LocalBroadcastManager.getInstance(it1).sendBroadcast(intent) }
                     dismiss()
                 }
             }

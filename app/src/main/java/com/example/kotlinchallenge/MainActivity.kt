@@ -11,6 +11,7 @@ import com.example.kotlinchallenge.data.network.responses.ArrayDataResponse
 import com.example.kotlinchallenge.ui.NetworkListener
 import com.example.kotlinchallenge.ui.contest.Contest
 import com.example.kotlinchallenge.ui.profile.ProfileFragment
+import com.example.kotlinchallenge.ui.search.SearchFragment
 import com.example.kotlinchallenge.ui.video.VideoFragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity(),NetworkListener {
     lateinit var Contest: Contest
     lateinit var profileFragment: ProfileFragment
     lateinit var videoFragment: VideoFragment
+    lateinit var searchFragment : SearchFragment
+
     var TAG : String = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +61,17 @@ class MainActivity : AppCompatActivity(),NetworkListener {
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                 }
+
+                R.id.nav_search->{
+                    toolbar_title.text = "Search"
+                    searchFragment = SearchFragment()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frame_layout,searchFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+
                 R.id.nav_video->{
                     toolbar_title.text = "Video"
                     videoFragment = VideoFragment()

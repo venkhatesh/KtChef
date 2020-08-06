@@ -25,7 +25,7 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewM
                 var result = profileRepository.fetchProfile(userName)
                 //result?.let { profileNetworkListener?.onSuccess(it) }
                 result?.let {
-                    Log.d(TAG, "callProfileApi: Inside On Success ${it.user_details.name}")
+//                    Log.d(TAG, "callProfileApi: Inside On Success ${it.user_details.name}")
                     loading.postValue(false)
                     liveResult.postValue(it)
                     //profileRepository.saveUser(it)
