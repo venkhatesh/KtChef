@@ -7,4 +7,5 @@
     <color name="colorDivider">#ECECEC</color>
     <color name="gray">#808080</color>
     <color name="cc">#5a4536</color>
+    <color name="black">#000000</color>
 </resources>
