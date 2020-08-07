@@ -24,6 +24,7 @@ interface ContestDao{
 
     @Query("select * from quotes order by random() limit 1")
     fun getRandomQuote():QuotesResponse
+
 //
 //    @Query("select * from user")
 //    fun loadUser() : List<UserDetailsResponse>
