@@ -51,8 +51,8 @@
                 android:layout_height="wrap_content"
                 android:text="Profile"
                 android:textAllCaps="false"
-                android:textColor="@color/light_cc"
-                app:strokeColor="@color/light_cc"
+                android:textColor="@color/cc"
+                app:strokeColor="@color/cc"
                 app:strokeWidth="2dp"
                 app:cornerRadius="0dp" />
 
@@ -63,10 +63,51 @@
                 android:text="Tags"
                 android:textAllCaps="false"
                 app:cornerRadius="0dp"
-                app:strokeColor="@color/light_cc"
+                app:strokeColor="@color/cc"
                 app:strokeWidth="2dp" />
 
         </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/cc">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+
+                <EditText
+                    android:id="@+id/search_box_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:hint="@string/search_profile"
+                    android:background="@drawable/shape_search_card_view"
+                    android:drawableLeft="@drawable/ic_search_cc"
+                    android:textColorHint="@color/cc"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="SEARCH"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
 
     </LinearLayout>
 

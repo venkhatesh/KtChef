@@ -39,6 +39,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
         lottie_animation.loop(false)
         search_profile.setOnClickListener(this)
         search_tags.setOnClickListener(this)
+        search_profile.setBackgroundColor(Color.parseColor("#ffffff"))
 
     }
 
@@ -55,6 +56,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
                  lottie_animation.setAnimation("profile.json")
                  lottie_animation.playAnimation()
                  lottie_animation.loop(false)
+                 search_box_et.setHint(R.string.search_profile)
              }
             R.id.search_tags -> {
                 Log.d(TAG, "onClick: Tags Click Click")
@@ -65,6 +67,8 @@ class SearchFragment : Fragment(), View.OnClickListener {
                 lottie_animation.setAnimation("price_tag.json")
                 lottie_animation.playAnimation()
                 lottie_animation.loop(false)
+                search_box_et.setHint(R.string.search_tag)
+
             }
         }
     }
