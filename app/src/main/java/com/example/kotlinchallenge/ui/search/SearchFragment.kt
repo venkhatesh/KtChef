@@ -1,6 +1,7 @@
 package com.example.kotlinchallenge.ui.search
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_search.*
  * Created by Venkhatesh on 06-08-2020.
  */
 
-class SearchFragment : Fragment(), ToggleSwitch.OnChangeListener {
+class SearchFragment : Fragment(), View.OnClickListener {
 
     val TAG = "SearchFragment"
     override fun onCreateView(
@@ -36,33 +37,40 @@ class SearchFragment : Fragment(), ToggleSwitch.OnChangeListener {
         lottie_animation.setAnimation("profile.json")
         lottie_animation.playAnimation()
         lottie_animation.loop(false)
-        val test = activity?.findViewById<ToggleSwitchButton>(R.id.toggle_switch_btn)
-        Log.d(TAG, "onViewCreated: Test Test")
-        Log.d(TAG, "onViewCreated: ")
-        toggle_switch_btn.setOnClickListener(View.OnClickListener {
-            Log.d(TAG, "onViewCreated: ")
-        })
-        toggle_switch_btn.setOnTouchListener(View.OnTouchListener { v, event ->
-           Log.d(TAG, "onViewCreated: insdieeee")
-           true
-           
-       })
-        test?.setOnClickListener {
-            Log.d(TAG, "onViewCreated: TEST TEST")
-        }
-        toggle_switch_btn.setOnClickListener {
-            Log.d(TAG, "onViewCreated: INSIDE")
-        }
-//        toggle_switch_btn.setOnToggleSwitchChangeListener { position, isChecked ->
-//            // Write your code ...
-//            Log.d(TAG, "onViewCreated: POsition CHeck $position")
-//        }
+        search_profile.setOnClickListener(this)
+        search_tags.setOnClickListener(this)
 
     }
 
-    override fun onToggleSwitchChanged(position: Int) {
-        Log.d(TAG, "onToggleSwitchChanged: AIYO")
+    @SuppressLint("ResourceAsColor")
+    override fun onClick(v: View?) {
+        Log.d(TAG, "onClick: CLICK CLICK")
+        when(v?.id){
+             R.id.search_profile -> {
+                 Log.d(TAG, "onClick: Profile CLick CLick")
+                 search_tags.setBackgroundColor(Color.parseColor("#ffffff"))
+                 search_tags.setTextColor(Color.parseColor("#5a4536"))
+                 search_profile.setBackgroundColor(Color.parseColor("#5a4536"))
+                 search_profile.setTextColor(Color.parseColor("#ffffff"))
+                 lottie_animation.setAnimation("profile.json")
+                 lottie_animation.playAnimation()
+                 lottie_animation.loop(false)
+             }
+            R.id.search_tags -> {
+                Log.d(TAG, "onClick: Tags Click Click")
+                search_profile.setBackgroundColor(Color.parseColor("#ffffff"))
+                search_profile.setTextColor(Color.parseColor("#5a4536"))
+                search_tags.setBackgroundColor(Color.parseColor("#5a4536"))
+                search_tags.setTextColor(Color.parseColor("#ffffff"))
+                lottie_animation.setAnimation("price_tag.json")
+                lottie_animation.playAnimation()
+                lottie_animation.loop(false)
+            }
+        }
     }
+
 }
+
+
 
 

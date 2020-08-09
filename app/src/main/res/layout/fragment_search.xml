@@ -22,22 +22,51 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:foregroundGravity="center" />
+            android:foregroundGravity="center"
+            app:lottie_enableMergePathsForKitKatAndAbove="true"/>
 
-            <com.llollox.androidtoggleswitch.widgets.ToggleSwitch
-                android:id="@+id/toggle_switch_btn"
+<!--            <com.llollox.androidtoggleswitch.widgets.ToggleSwitch-->
+<!--                android:id="@+id/toggle_switch_btn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:textToggleLeft="Profile"-->
+<!--                app:textToggleRight="Tags"-->
+<!--                app:checkedTextColor="@color/whiteColor"-->
+<!--                app:checkedBackgroundColor="@color/cc"-->
+<!--                app:uncheckedTextColor="@color/black"-->
+<!--                app:uncheckedBackgroundColor="@color/whiteColor"-->
+<!--                app:uncheckedBorderColor="@color/cc"-->
+<!--                app:checkedBorderColor="@color/cc"-->
+<!--                app:borderWidth="1dp"-->
+<!--                />-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/search_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:textToggleLeft="Profile"
-                app:textToggleRight="Tags"
-                app:checkedTextColor="@color/whiteColor"
-                app:checkedBackgroundColor="@color/cc"
-                app:uncheckedTextColor="@color/black"
-                app:uncheckedBackgroundColor="@color/whiteColor"
-                app:uncheckedBorderColor="@color/cc"
-                app:checkedBorderColor="@color/cc"
-                app:borderWidth="1dp" />
+                android:text="Profile"
+                android:textAllCaps="false"
+                android:textColor="@color/light_cc"
+                app:strokeColor="@color/light_cc"
+                app:strokeWidth="2dp"
+                app:cornerRadius="0dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/search_tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tags"
+                android:textAllCaps="false"
+                app:cornerRadius="0dp"
+                app:strokeColor="@color/light_cc"
+                app:strokeWidth="2dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
