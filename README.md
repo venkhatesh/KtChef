@@ -27,6 +27,7 @@ This app implements MVVM architecture
 - Room
 - Repository Pattern
 - Paging
+- Dagger
 
 ## Dependencies & Libraries used
 - [Kotlin Language](https://developer.android.com/kotlin/add-kotlin)
