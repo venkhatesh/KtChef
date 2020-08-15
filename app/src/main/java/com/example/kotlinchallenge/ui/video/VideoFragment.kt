@@ -30,10 +30,12 @@ import kotlinx.coroutines.launch
  * Created by Venkhatesh on 19-07-2020.
  */
 
-class VideoFragment  : Fragment() {
+class VideoFragment  : Fragment(), View.OnClickListener {
     private lateinit var viewModel: VideoViewModel
     private var adapter: VideosAdapter = VideosAdapter()
     private lateinit var linearLayoutManager: LinearLayoutManager
+    val CODECHEF_CHANNEL = "UCmk2YHXZQk_3GsLKBqsZoBQ"
+    val LEARN_COMPETITIVE_PROGRAMMING_WITH_CODECHEF = "UCh-5M0r0SBgb5xNCFXG7aXQ"
 
     var TAG : String = "VideoFragment"
     override fun onCreateView(
@@ -47,6 +49,7 @@ class VideoFragment  : Fragment() {
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        ChannelId.setChannelId(LEARN_COMPETITIVE_PROGRAMMING_WITH_CODECHEF)
         viewModel = ViewModelProviders.of(this).get(VideoViewModel::class.java)
         linearLayoutManager = LinearLayoutManager(activity)
         videos_recycler.layoutManager = linearLayoutManager
@@ -54,12 +57,15 @@ class VideoFragment  : Fragment() {
         val divider = DividerItemDecoration(videos_recycler.getContext(), DividerItemDecoration.VERTICAL)
         divider.setDrawable(context?.let { it1 -> ContextCompat.getDrawable(it1, R.layout.custom_divider) }!!)
         videos_recycler.addItemDecoration(divider)
-        lifecycleScope.launch {
-            viewModel.fetchVideo().collect{
-                Log.d(TAG, "onViewCreated: ")
-                adapter.submitData(it)
-            }
-        }
+        codechef_fab.setOnClickListener(this)
+        learn_competitive_fab.setOnClickListener(this)
+        networkCall()
+//        lifecycleScope.launch {
+//            viewModel.fetchVideo().collect{
+//                Log.d(TAG, "onViewCreated: ")
+//                adapter.submitData(it)
+//            }
+//        }
 
         //var result = viewModel.fetchYoutubeApi()
         //Log.d(TAG, "onViewCreated: ${result?.size}")
@@ -85,5 +91,29 @@ class VideoFragment  : Fragment() {
 //                }
 //            })
 
+    }
+
+
+    fun networkCall(){
+        lifecycleScope.launch {
+            viewModel.fetchVideo().collect{
+                Log.d(TAG, "onViewCreated: ")
+                adapter.submitData(it)
+            }
+        }
+    }
+
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.codechef_fab -> {
+                ChannelId.setChannelId(CODECHEF_CHANNEL)
+                networkCall()
+            }
+            R.id.learn_competitive_fab -> {
+                ChannelId.setChannelId(LEARN_COMPETITIVE_PROGRAMMING_WITH_CODECHEF)
+                networkCall()
+            }
+        }
     }
 }

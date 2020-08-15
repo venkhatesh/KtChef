@@ -59,6 +59,7 @@
             app:menu_colorRipple="#99FFFFFF">
 
                 <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/codechef_fab"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:fab_size="mini"
@@ -69,6 +70,7 @@
                     app:fab_colorRipple="#99FFFFFF"/>
 
                 <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/learn_competitive_fab"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:fab_size="mini"

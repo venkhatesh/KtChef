@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.paging.PagingSource
 import com.example.kotlinchallenge.data.network.CodeChefYoutubeApi
 import com.example.kotlinchallenge.data.network.responses.youtube.ApiItems
+import com.example.kotlinchallenge.ui.video.ChannelId
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -20,7 +21,7 @@ class YoutubePagingSource(
         Log.d(TAG, "load: params ${params.key}")
         val position = params.key ?: ""
         return try{
-            val response = api.invoke().youtubeVideos(position)
+            val response = api.invoke().youtubeVideos(position,ChannelId.getChannelId())
             val videos = response.items
             //position = response.nextPageToken
             Log.d(TAG, "load: ${videos.get(0).id}")

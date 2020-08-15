@@ -17,7 +17,8 @@ interface CodeChefYoutubeApi {
 
     @GET("youtube/v3/search?key=${BuildConfig.YOUTUBE_API_KEY}&channelId=UCmk2YHXZQk_3GsLKBqsZoBQ&maxResults=508&part=snippet&order=date")
     suspend fun youtubeVideos(
-        @Query("pageToken") token : String
+        @Query("pageToken") token : String,
+        @Query("channelId") id : String
     ): YoutubeApiResponse
 
     companion object{
