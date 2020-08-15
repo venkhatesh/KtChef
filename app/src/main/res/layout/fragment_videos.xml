@@ -48,4 +48,37 @@
             android:layout_height="0dp"
             tools:listitem="@layout/youtube_video_item"/>
 
+        <com.github.clans.fab.FloatingActionMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu_icon="@drawable/ic_baseline_sort"
+            app:menu_colorNormal="@color/cc"
+            app:menu_colorPressed="@color/cc"
+            app:menu_colorRipple="#99FFFFFF">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fab_size="mini"
+                    android:src="@drawable/ic_video_white"
+                    app:fab_label="CodeChef"
+                    app:fab_colorNormal="@color/cc"
+                    app:fab_colorPressed="@color/cc"
+                    app:fab_colorRipple="#99FFFFFF"/>
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fab_size="mini"
+                    android:src="@drawable/ic_video_white"
+                    app:fab_label="learn competitive programming with codechef"
+                    app:fab_colorNormal="@color/cc"
+                    app:fab_colorPressed="@color/cc"
+                    app:fab_colorRipple="#99FFFFFF"/>
+
+
+        </com.github.clans.fab.FloatingActionMenu>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
