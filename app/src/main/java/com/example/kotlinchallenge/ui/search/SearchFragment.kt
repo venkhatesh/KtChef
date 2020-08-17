@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import com.example.kotlinchallenge.R
 import com.google.android.material.slider.Slider
+import com.google.android.material.tabs.TabLayout
 import com.llollox.androidtoggleswitch.widgets.ToggleSwitch
 import com.llollox.androidtoggleswitch.widgets.ToggleSwitchButton
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -22,6 +24,9 @@ import kotlinx.android.synthetic.main.fragment_search.*
 class SearchFragment : Fragment(), View.OnClickListener {
 
     val TAG = "SearchFragment"
+    lateinit var pagerAdapter: SearchPageAdapter
+    lateinit var tabLayout : TabLayout
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,6 +45,12 @@ class SearchFragment : Fragment(), View.OnClickListener {
         search_profile.setOnClickListener(this)
         search_tags.setOnClickListener(this)
         search_profile.setBackgroundColor(Color.parseColor("#ffffff"))
+        val viewPager = activity?.findViewById<ViewPager>(R.id.search_view_pager)
+        pagerAdapter = SearchPageAdapter(requireActivity().supportFragmentManager)
+        viewPager?.adapter = pagerAdapter
+        tabLayout = activity?.findViewById(R.id.search_tab_layout)!!
+        tabLayout.setupWithViewPager(viewPager)
+
 
     }
 
