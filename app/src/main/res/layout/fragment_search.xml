@@ -139,14 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Search Results"
-                android:gravity="center"/>
+            android:layout_marginTop="10dp">
 
             <com.bitvale.lightprogress.LightProgress
                 android:id="@+id/light"
@@ -155,8 +148,9 @@
                 android:textSize="@dimen/text_size"
                 android:textColor="@color/whiteColor"
                 android:text="Loading"
-                app:light_color="@color/cc"/>
-
+                app:light_color="@color/cc"
+                android:visibility="gone"/>
+            <include layout="@layout/user_item"/>
 
         </LinearLayout>
     </LinearLayout>
