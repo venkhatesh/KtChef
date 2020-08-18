@@ -148,6 +148,9 @@ dependencies {
     //multiple fab
     implementation 'com.github.clans:fab:1.6.4'
 
+    //loading library
+    implementation 'com.bitvale:lightprogress:1.0.1'
+
 }
 
 kapt{

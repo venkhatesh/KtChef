@@ -33,7 +33,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
-
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -50,7 +49,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
         viewPager?.adapter = pagerAdapter
         tabLayout = activity?.findViewById(R.id.search_tab_layout)!!
         tabLayout.setupWithViewPager(viewPager)
-
+        light.on()
 
     }
 
