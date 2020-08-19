@@ -94,6 +94,7 @@
                     android:drawableLeft="@drawable/ic_search_cc"
                     android:textColorHint="@color/cc"/>
                 <TextView
+                    android:id="@+id/search_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
@@ -139,7 +140,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="10dp">
+            android:gravity="center">
 
             <com.bitvale.lightprogress.LightProgress
                 android:id="@+id/light"
@@ -149,8 +150,11 @@
                 android:textColor="@color/whiteColor"
                 android:text="Loading"
                 app:light_color="@color/cc"
+                android:layout_gravity="center"
                 android:visibility="gone"/>
-            <include layout="@layout/user_item"/>
+
+            <include layout="@layout/user_item"
+                android:visibility="gone"/>
 
         </LinearLayout>
     </LinearLayout>

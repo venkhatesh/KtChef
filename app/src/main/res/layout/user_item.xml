@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:id="@+id/user_item_ll">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -41,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="2"
-                    android:layout_marginLeft="10dp">
+                    android:marginr="10dp">
 
                 <TextView
                     android:id="@+id/user_item_name"
@@ -63,7 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="5dp"
-                        android:layout_marginTop="5dp">
+                        android:layout_margin="5dp">
                         <LinearLayout
                             android:padding="5dp"
                             android:layout_width="wrap_content"
@@ -75,7 +76,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_margin="5dp">
+                                android:layout_marginRight="5dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -93,8 +94,7 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_margin="5dp">
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -113,7 +113,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_margin="5dp">
+                                android:layout_marginLeft="5dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
