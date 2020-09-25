@@ -62,11 +62,11 @@ width="200"
 
 [<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg)
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/Shimmer.gif)
 [<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg)
 [<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/splash_screeen.jpg" align="center"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/splash_screeen.jpg)
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/SplashScreen.jpg)
 
