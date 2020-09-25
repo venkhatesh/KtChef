@@ -52,21 +52,21 @@ width="200"
 [<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif" align="left"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif)
-[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif" align="left"
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif" align="left"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif)
-[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif" align="left"
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Video.gif" align="left"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Video.gif)      
     
 
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg" align="left"
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/Shimmer.gif" align="left"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/Shimmer.gif)
 [<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/no_internet.jpg)
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/splash_screeen.jpg" align="center"
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/SplashScreen.gif" align="center"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/SplashScreen.jpg)
+    hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/SplashScreen.gif)
 
