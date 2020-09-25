@@ -52,9 +52,12 @@ width="200"
 [<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif" align="left"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif)
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif" align="left"
+width="200"
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif)
 [<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/youtube.gif)      
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Video.gif)      
     
 
 [<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/shimmer_effect.jpg" align="left"
