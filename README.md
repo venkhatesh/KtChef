@@ -48,25 +48,25 @@ This app implements MVVM architecture
 
 
 
-[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif" align="left"
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/contest.gif)
-[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif" align="left"
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif)
-[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif" align="left"
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif)
     
     
     
-[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Video.gif" align="left"
+[<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Video.gif" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Video.gif)  
     
 
 
-[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/Shimmer.gif" align="left"
+[<img src="https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/Shimmer.gif" align="center"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/KotlinChallenge/blob/master/screenshots/Shimmer.gif)
 
