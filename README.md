@@ -54,8 +54,7 @@ width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/profile.gif)
 [<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif" align="left"
 width="200"
-    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif)
-    </br>
+    hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Search.gif)</br>
 [<img src="https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Video.gif" align="left"
 width="200"
     hspace="10" vspace="10">](https://github.com/venkhatesh/CodeChef-App/blob/master/screenshots/Video.gif)      
