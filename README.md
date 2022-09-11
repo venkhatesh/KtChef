@@ -1,5 +1,5 @@
-# Code Chef Contest
-CodeChef Contest is an educational and user friendly application to bring competitive programming to the Android devices.
+# KtChef
+KtChef is an educational and user friendly application to bring codechef competitive programming to the Android devices.
 
 ## How to run the app
 Yet another Open-Source CodeChef Client App but unlike any other project, Codechef App and API was built by myself using Kotlin for android and GO language for API.
